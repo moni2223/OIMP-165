@@ -1,0 +1,934 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap-theme.min.css">
+    <link href="product.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #eaeaea;
+
+        }
+
+        .navtext {
+            size: 5;
+        }
+
+        #navbar {
+
+            border-bottom: 0.1px solid gray;
+        }
+
+
+        #footer {
+            border-top: solid 0.5px gray;
+        }
+
+        .bodycontainer {
+            background-color: white;
+            border: 1px solid darkgray;
+        }
+
+
+        #processor,
+        #motherboard,
+        #memory,
+        #harddisk,
+        #videocard,
+        #powersupply {
+            display: none;
+        }
+
+        .logo1 {
+            width: 35%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .inner {
+            background-color: #eaeaea;
+            border-radius: 15px;
+            box-shadow: 4px 4px 4px 5px;
+        }
+
+        .list {
+            display: none;
+        }
+
+        .th2 {
+            background-color: darkgray;
+            border: 1.5px solid black;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .td2 {
+            background-color: none;
+            border: 1.5px solid black;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+        .bodyimg {
+            background-image: url("{{ asset('build/static/body.jpg') }}");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #processorbtn,
+        #motherboardbtn,
+        #rambtn,
+        #hardbtn,
+        #videocardbtn,
+        #powersupplybtn
+        {visibility: hidden;}
+        .slideanim { visibility: hidden;}
+        .slidein {
+            /* The name of the animation */
+            animation-name: slidein;
+            -webkit-animation-name: slidein;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+            visibility: visible;
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .slideout {
+            /* The name of the animation */
+            animation-name: slideout;
+            -webkit-animation-name: slideout;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slideout {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        @-webkit-keyframes slideout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .btn1{
+            border-color: black;
+            background-color: dodgerblue;
+            color:white;
+            opacity: 0.9;
+        }
+
+        .btn1:hover{
+            color:white;
+            border-color: black;
+            background-color: dodgerblue;
+            opacity: 0.8;
+        }
+
+        .img{
+            background-image: -webkit-linear-gradient(left, lightgrey 0%, darkgray 20%, dimgray 50%, darkgray 80%, lightgrey 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-md-center collapse show">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('homepage') }}"><img class="img-fluid d-block px-auto mx-auto" style= "width: 45%;" src="{{ asset('build/static/logo-finished.png') }}"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<nav class="navbar sticky-top py-2 navbar-expand-md navbar-light bg-light" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample08">
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item w-25 slideanim" >
+                <img class="" style= "width: 22%;" src="{{ asset('build/static/logo.png') }}">
+            </li>
+
+            <li class="nav-item mx-3 my-auto ">
+                <a class="nav-link" href="{{ path('homepage') }}"> <strong>Начало</strong> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item  mx-3 my-auto">
+                <a class="nav-link" href="{{ path('about_us') }}"><strong>За нас</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('compareprices') }}"><strong>Сравняване на цени</strong></a>
+            </li>
+
+            <li class="nav-item  active mx-3 my-auto">
+                <a class="nav-link" href="{{ path('first_step') }}"><strong>Компютърни конфигурации</strong></a>
+            </li>
+        </ul>
+
+
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto px-auto my-auto">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Добре дошли,{{ app.user.first }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ path('changepassword') }}">Редактиране на профил</a>
+                        <a class="dropdown-item" href="{{ path('myconfig') }}">Запазени конфигурации</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" href="{{ path('admin_panel') }}">Администраторски панел</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">Изход</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto mr-3 px-auto my-auto">
+                <div class="btn-group-vertical  btn-group-sm mx-auto" role="group">
+                    <a  id="logbutton" class="btn btn-primary text-white" href="{{ path('app_login') }}">Вход</a>
+                    <a id="regbutton" class="btn btn-primary text-white"href="{{ path('site_register') }}">Регистрация</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+<div class="container-fluid px-0">
+
+
+    <div class="bodyimg p-5">
+        <div class="container-fluid mt-5 pt-5 inner">
+            <div class="row">
+                <div class="col-md-10 p-lg-5 mx-auto my-1">
+                    <h1 class="display-4 font-weight-normal">Компютърни конфигурации</h1>
+                    <p class="lead font-weight-normal">Изберете най-подходящата конфигурация за вас с 3 бързи стъпки!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 bodycontainer px-4 pb-3 rounded">
+
+                    <div class="row pt-3">
+                        <div class="col-md-8 px-5">
+                            <h1 class="display-5 font-weight-normal">Стъпка 3:</h1>
+                            <p class="lead font-weight-normal"> Сглобете вашия компютър:</p>
+                        </div>
+                    </div>
+
+                    <div class="row border rounded p-3">
+                        <div class="col-2" id="processor-trigger"><a href="javascript:void(0);"><img class=" w-100 " src="{{ asset('build/static/processor.png') }} "></a></div>
+
+                        <div class="col-2 " id="motherboard-trigger"><a href="javascript:void(0);"><img class="w-100 " src="{{ asset('build/static/motherboard1.png') }} "></a></div>
+
+                        <div class="col-2 " id="memory-trigger"><a href="javascript:void(0);"><img class="w-100 " src="{{ asset('build/static/memory.png') }}"></a></div>
+
+                        <div class="col-2 " id="harddisk-trigger"><a href="javascript:void(0);"><img class="w-100 " src="{{ asset('build/static/harddisk.png') }}"></a></div>
+
+                        <div class="col-2 " id="videocard-trigger"><a href="javascript:void(0);"><img class="w-100 " src="{{ asset('build/static/videocard.png') }}"></a></div>
+
+                        <div class="col-2 " id="powersupply-trigger"><a href="javascript:void(0);"><img class="w-100 " src="{{ asset('build/static/powersupply.png') }}"></a></div>
+                    </div>
+
+                    <div class="row p-3 " id="processor">
+                        <div class="col-1 "></div>
+                        <div class="col-10 radiocontainerprocessor">
+                            <h1 class="display-5 font-weight-normal">Процесор:</h1>
+
+                            {% for processor1 in processor1 %}
+                                <input type="radio" name="processor" value="{{ processor1.Name }}">
+                                <strong>{{ processor1.Name }}</strong><br>
+                            {% endfor %}
+                            {% for processor2 in processor2 %}
+                                <input type="radio" name="processor" value="{{ processor2.Name }}"> <strong>{{ processor2.Name }}</strong><br>
+                            {% endfor %}
+                            {% for processor3 in processor3 %}
+                                <input type="radio" name="processor" value="{{ processor3.Name }}"> <strong>{{ processor3.Name }}</strong><br>
+                            {% endfor %}
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row p-3 " id="motherboard">
+                        <div class="col-1 "></div>
+                        <div class="col-10 radiocontainermotherboard">
+                            <h1 class="display-5 font-weight-normal">Дънна платка:</h1>
+                            <form>
+                                {% for motherboard1 in motherboard1 %}
+                                    <input type="radio" name="motherboard" value="{{ motherboard1.Name}}"> <strong>{{ motherboard1.Name }}</strong><br>
+                                {% endfor %}
+                                {% for motherboard2 in motherboard2 %}
+                                    <input type="radio" name="motherboard" value="{{ motherboard2.Name }}"> <strong>{{ motherboard2.Name }}</strong><br>
+                                {% endfor %}
+                                {% for motherboard3 in motherboard3 %}
+                                    <input type="radio" name="motherboard" value="{{ motherboard3.Name }}"> <strong>{{ motherboard3.Name }}</strong><br>
+                                {% endfor %}
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row p-3 " id="memory">
+                        <div class="col-1 "></div>
+                        <div class="col-10 radiocontainermemory">
+                            <h1 class="display-5 font-weight-normal">RAM памет:</h1>
+                            <form>
+                                {% for ram1 in ram1 %}
+                                    <input type="radio" name="memory" value="{{ ram1.Name }}"> <strong>{{ ram1.Name }}</strong><br> {% endfor %}
+                                {% for ram2 in ram2 %}
+                                    <input type="radio" name="memory" value="{{ ram2.Name }}"> <strong>{{ ram2.Name }}</strong><br> {% endfor %}
+                                {% for ram3 in ram3 %}
+                                    <input type="radio" name="memory" value="{{ ram3.Name }}"> <strong>{{ ram3.Name }}</strong><br> {% endfor %}
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row p-3 " id="harddisk">
+                        <div class="col-1 "></div>
+                        <div class="col-10 radiocontainerhard">
+                            <h1 class="display-5 font-weight-normal">Твърд диск:</h1>
+                            <form>
+                                {% for hard1 in hard1 %}
+                                    <input type="radio" name="hard" value="{{ hard1.Name }}"> <strong>{{ hard1.Name }}</strong><br>
+                                {% endfor %}
+                                {% for hard2 in hard2 %}
+                                    <input type="radio" name="hard" value="{{ hard2.Name }}"> <strong>{{ hard2.Name }}</strong><br>
+                                {% endfor %}
+                                {% for hard3 in hard3 %}
+                                    <input type="radio" name="hard" value="{{ hard3.Name }}"> <strong>{{ hard3.Name }}</strong><br>
+                                {% endfor %}
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row p-3 " id="videocard">
+                        <div class="col-1 "></div>
+                        <div class="col-10 radiocontainervideocard">
+                            <h1 class="display-5 font-weight-normal">Видео карта:</h1>
+                            <form>
+                                {% for videocard1 in videocard1 %}
+                                    <input type="radio" name="videocard" value="{{ videocard1.Name }}"> <strong>{{ videocard1.Name }}</strong><br>
+                                {% endfor %}
+                                {% for videocard2 in videocard2 %}
+                                    <input type="radio" name="videocard" value="{{ videocard2.Name }}"> <strong>{{ videocard2.Name }}</strong><br>
+                                {% endfor %}
+                                {% for videocard3 in videocard3 %}
+                                    <input type="radio" name="videocard" value="{{ videocard3.Name }}"> <strong>{{ videocard3.Name }}</strong><br> {% endfor %}
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row p-3 " id="powersupply">
+                        <div class="col-1 "></div>
+                        <div class="col-10 radiocontainerpowersupply ">
+                            <h1 class="display-5 font-weight-normal">Захранване:</h1>
+                            <form>
+                                {% for powersupply1 in power1 %}
+                                    <input type="radio" name="hard" value="{{ powersupply1.Name }}"> <strong>{{ powersupply1.Name }}</strong><br>
+                                {% endfor %}
+                                {% for powersupply2 in power2 %}
+                                    <input type="radio" name="hard" value="{{ powersupply2.Name }}"> <strong>{{ powersupply2.Name }}</strong><br>
+                                {% endfor %}
+                                {% for powersupply3 in power3 %}
+                                    <input type="radio" name="hard" value="{{ powersupply3.Name }}"> <strong>{{ powersupply3.Name }}</strong><br> {% endfor %}
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-3 mb-3">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 list">
+                    <h1 class="display-5 font-weight-normal"> Лист:</h1>
+                    <table class="w-100" style="box-shadow: 3px 3px 4px black;">
+                        <tr>
+                            <th class="th2"> Процесор: </th>
+                            <td class="td2 processorra processortext"></td>
+                            <td class="td2"><a id="processorbtn" href="" target="_blank"><button class="btn"> Провери цената </button></a></td>
+                        </tr>
+                        <tr>
+                            <th class="th2"> Дънна платка: </th>
+                            <td class=" td2 dunnoto motherboardtext"></td>
+                            <td class="td2"><a id="motherboardbtn" href="" target="_blank"><button class="btn"> Провери цената </button></a></td>
+                        </tr>
+                        <tr>
+                            <th class="th2"> RAM памет: </th>
+                            <td class=" td2 ramta memorytext"></td>
+                            <td class="td2"><a id="rambtn" href="" target="_blank"><button class="btn"> Провери цената </button></a></td>
+                        </tr>
+                        <tr>
+                            <th class="th2"> Твърд диск: </th>
+                            <td class=" td2 harda hardtext"></td>
+                            <td class="td2"><a id="hardbtn" href="" target="_blank"><button class="btn"> Провери цената </button></a></td>
+                        </tr>
+                        <tr>
+                            <th class="th2"> Видео карта: </th>
+                            <td class=" td2 videocarta videocardtext"></td>
+                            <td class="td2"><a id="videocardbtn" href="" target="_blank"><button class="btn"> Провери цената </button></a></td>
+                        </tr>
+                        <tr>
+                            <th class="th2"> Захранване: </th>
+                            <td class=" td2 zahranvane powersupplytext"></td>
+                            <td class="td2"><a id="powersupplybtn" href="" target="_blank"><button class="btn"> Провери цената </button></a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+            <div class="row my-3 py-3">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 px-auto list">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+                        <a class="btn  buton btn-lg btn-primary text-white save px-auto mx-auto disabled"> Запазване на конфигурация</a>
+                    {% endif %}
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="container py-5 mt-3 " id="footer">
+    <div class="row ">
+        <div class="col-12 col-md ">
+            <img class="w-25" src="{{ asset('build/static/logo.png') }}">
+            <small class="d-block mb-3 text-muted ">© 2019</small>
+        </div>
+        <div class="col-6 col-md ">
+            <h5>Секции</h5>
+            <ul class="list-unstyled text-small ">
+                <li><a class="text-muted " href="{{ path('homepage') }}">Начало</a></li>
+                <li><a class="text-muted " href="{{ path('about_us') }}">За нас</a></li>
+                <li><a class="text-muted " href="{{ path('compareprices') }}">Сравняване на цени</a></li>
+                <li><a class="text-muted " href="{{ path('first_step') }}">Компютърни конфигурации</a></li>
+            </ul>
+        </div>
+
+        <div class="col-6 col-md ">
+            <h5>За връзка:</h5>
+            <ul class="list-unstyled text-small">
+                <li class="text-muted">dragomirvasilev23@gmail.com</li>
+                <li class="text-muted">ben669@abv.bg</li>
+            </ul>
+        </div>
+        <div class="col-6 mt-5 col-md">
+
+            <a href="#" id="scroll"><img class="logo1" src="{{ asset('build/static/arrowup.png') }}"></a>
+
+        </div>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#scroll').click(function () {
+            $("html, body").animate({scrollTop: 0}, 600);
+            return false;
+        });
+    });
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://charactercounttool.com/cct_embed.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(function () {
+            if ($(this).scrollTop() > 200) {
+                $(".slideanim").addClass("slidein");
+            }
+            var fl=0;
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 150) {
+                    $(".slideanim").removeClass("slideout");
+                    $(".slideanim").addClass("slidein");
+                    fl=1;
+                }
+
+                if ($(this).scrollTop() < 150 && fl==1) {
+                    $(".slideanim").removeClass("slidein");
+                    $(".slideanim").addClass("slideout");
+                    fl=0;
+                }
+
+
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        $("#processor-trigger").click(function() {
+            $("#processor").css('display', 'block');
+            $("#processor-trigger").css('border', '1px solid black');
+            $("#processor-trigger").css('box-shadow', '3px 3px 3px 4px');
+            $("#motherboard-trigger").css('border', 'none');
+            $("#motherboard-trigger").css('box-shadow', 'none');
+            $("#memory-trigger").css('border', 'none');
+            $("#memory-trigger").css('box-shadow', 'none');
+            $("#harddisk-trigger").css('border', 'none');
+            $("#harddisk-trigger").css('box-shadow', 'none');
+            $("#videocard-trigger").css('border', 'none');
+            $("#videocard-trigger").css('box-shadow', 'none');
+            $("#powersupply-trigger").css('border', 'none');
+            $("#powersupply-trigger").css('box-shadow', 'none');
+            $("#motherboard").css('display', 'none');
+            $("#memory").css('display', 'none');
+            $("#harddisk").css('display', 'none');
+            $("#videocard").css('display', 'none');
+            $("#powersupply").css('display', 'none');
+        });
+        $("#motherboard-trigger").click(function() {
+            $("#motherboard").css('display', 'block');
+            $("#motherboard-trigger").css('border', '1px solid black');
+            $("#motherboard-trigger").css('box-shadow', '3px 3px 3px 4px');
+            $("#processor-trigger").css('border', 'none');
+            $("#processor-trigger").css('box-shadow', 'none');
+            $("#memory-trigger").css('border', 'none');
+            $("#memory-trigger").css('box-shadow', 'none');
+            $("#harddisk-trigger").css('border', 'none');
+            $("#harddisk-trigger").css('box-shadow', 'none');
+            $("#videocard-trigger").css('border', 'none');
+            $("#videocard-trigger").css('box-shadow', 'none');
+            $("#powersupply-trigger").css('border', 'none');
+            $("#powersupply-trigger").css('box-shadow', 'none');
+            $("#processor").css('display', 'none');
+            $("#memory").css('display', 'none');
+            $("#harddisk").css('display', 'none');
+            $("#videocard").css('display', 'none');
+            $("#powersupply").css('display', 'none');
+        });
+        $("#memory-trigger").click(function() {
+            $("#memory").css('display', 'block');
+            $("#memory-trigger").css('border', '1px solid black');
+            $("#memory-trigger").css('box-shadow', '3px 3px 3px 4px');
+            $("#motherboard-trigger").css('border', 'none');
+            $("#motherboard-trigger").css('box-shadow', 'none');
+            $("#processor-trigger").css('border', 'none');
+            $("#processor-trigger").css('box-shadow', 'none');
+            $("#harddisk-trigger").css('border', 'none');
+            $("#harddisk-trigger").css('box-shadow', 'none');
+            $("#videocard-trigger").css('border', 'none');
+            $("#videocard-trigger").css('box-shadow', 'none');
+            $("#powersupply-trigger").css('border', 'none');
+            $("#powersupply-trigger").css('box-shadow', 'none');
+            $("#motherboard").css('display', 'none');
+            $("#processor").css('display', 'none');
+            $("#harddisk").css('display', 'none');
+            $("#videocard").css('display', 'none');
+            $("#powersupply").css('display', 'none');
+        });
+        $("#harddisk-trigger").click(function() {
+            $("#harddisk").css('display', 'block');
+            $("#harddisk-trigger").css('border', '1px solid black');
+            $("#harddisk-trigger").css('box-shadow', '3px 3px 3px 4px');
+            $("#motherboard-trigger").css('border', 'none');
+            $("#motherboard-trigger").css('box-shadow', 'none');
+            $("#memory-trigger").css('border', 'none');
+            $("#memory-trigger").css('box-shadow', 'none');
+            $("#processor-trigger").css('border', 'none');
+            $("#processor-trigger").css('box-shadow', 'none');
+            $("#videocard-trigger").css('border', 'none');
+            $("#videocard-trigger").css('box-shadow', 'none');
+            $("#powersupply-trigger").css('border', 'none');
+            $("#powersupply-trigger").css('box-shadow', 'none');
+            $("#motherboard").css('display', 'none');
+            $("#memory").css('display', 'none');
+            $("#processor").css('display', 'none');
+            $("#videocard").css('display', 'none');
+            $("#powersupply").css('display', 'none');
+        });
+        $("#videocard-trigger").click(function() {
+            $("#videocard").css('display', 'block');
+            $("#videocard-trigger").css('border', '1px solid black');
+            $("#videocard-trigger").css('box-shadow', '3px 3px 3px 4px');
+            $("#motherboard-trigger").css('border', 'none');
+            $("#motherboard-trigger").css('box-shadow', 'none');
+            $("#memory-trigger").css('border', 'none');
+            $("#memory-trigger").css('box-shadow', 'none');
+            $("#harddisk-trigger").css('border', 'none');
+            $("#harddisk-trigger").css('box-shadow', 'none');
+            $("#processor-trigger").css('border', 'none');
+            $("#processor-trigger").css('box-shadow', 'none');
+            $("#powersupply-trigger").css('border', 'none');
+            $("#powersupply-trigger").css('box-shadow', 'none');
+            $("#motherboard").css('display', 'none');
+            $("#memory").css('display', 'none');
+            $("#harddisk").css('display', 'none');
+            $("#processor").css('display', 'none');
+            $("#powersupply").css('display', 'none');
+        });
+        $("#powersupply-trigger").click(function() {
+            $("#powersupply").css('display', 'block');
+            $("#powersupply-trigger").css('border', '1px solid black');
+            $("#powersupply-trigger").css('box-shadow', '3px 3px 3px 4px');
+            $("#motherboard-trigger").css('border', 'none');
+            $("#motherboard-trigger").css('box-shadow', 'none');
+            $("#memory-trigger").css('border', 'none');
+            $("#memory-trigger").css('box-shadow', 'none');
+            $("#harddisk-trigger").css('border', 'none');
+            $("#harddisk-trigger").css('box-shadow', 'none');
+            $("#videocard-trigger").css('border', 'none');
+            $("#videocard-trigger").css('box-shadow', 'none');
+            $("#processor-trigger").css('border', 'none');
+            $("#processor-trigger").css('box-shadow', 'none');
+            $("#motherboard").css('display', 'none');
+            $("#memory").css('display', 'none');
+            $("#harddisk").css('display', 'none');
+            $("#videocard").css('display', 'none');
+            $("#processor").css('display', 'none');
+        });
+
+        $('.radiocontainerprocessor input:radio').click(function() {
+            var selectedVal;
+            var selected = $(".radiocontainerprocessor input[type='radio']:checked");
+            selectedVal = selected.val();
+            $(".processortext").text(selectedVal);
+            $(".list").css("display", "block");
+            $("#processorbtn").css('visibility', 'visible');
+            {% for processor1 in processor1 %}
+            if (selectedVal == "{{ processor1.Name }}")
+            {
+                $("#processorbtn").attr("href", "{{ path('processor_show', {'id': '15'}) }}")
+            }
+            {% endfor %}
+            {% for processor2 in processor2 %}
+            if (selectedVal == "{{ processor2.Name }}")
+            {
+                $("#processorbtn").attr("href", "{{ path('processor_show', {'id': '20'}) }}")
+            }
+            {% endfor %}
+
+            {% for processor3 in processor3 %}
+            if (selectedVal == "{{ processor3.Name }}")
+            {
+                $("#processorbtn").attr("href", "{{ path('processor_show', {'id': '21'}) }}")
+            }
+            {% endfor %}
+
+            var value1 = $('.radiocontainerprocessor input:radio').is(':checked');
+            var value2 = $('.radiocontainermotherboard input:radio').is(':checked');
+            var value3 = $('.radiocontainermemory input:radio').is(':checked');
+            var value4 = $('.radiocontainerhard input:radio').is(':checked');
+            var value5 = $('.radiocontainervideocard input:radio').is(':checked');
+            var value6 = $('.radiocontainerpowersupply input:radio').is(':checked');
+
+
+            if ( value1 == true && value2==true && value3==true && value4==true && value5 == true && value6 == true )
+            {
+                $(".save").removeClass("disabled")
+            }
+
+        });
+
+        $('.radiocontainermotherboard input:radio').click(function() {
+            var selectedVal;
+            var selected = $(".radiocontainermotherboard input[type='radio']:checked");
+            selectedVal = selected.val();
+            $(".motherboardtext").text(selectedVal);
+            $(".list").css("display", "block");
+            $("#motherboardbtn").css('visibility', 'visible');
+
+            {% for motherboard1 in motherboard1 %}
+            if (selectedVal == "{{ motherboard1.Name }}")
+            {
+                $("#motherboardbtn").attr("href", "{{ path('motherboard_show', {'id': '3'}) }}")
+            }
+            {% endfor %}
+
+            {% for motherboard2 in motherboard2 %}
+            if (selectedVal == "{{ motherboard2.Name }}")
+            {
+                $("#motherboardbtn").attr("href", "{{ path('motherboard_show', {'id': '6'}) }}")
+            }
+            {% endfor %}
+
+            {% for motherboard3 in motherboard3 %}
+            if (selectedVal == "{{ motherboard3.Name }}")
+            {
+                $("#motherboardbtn").attr("href", "{{ path('motherboard_show', {'id': '8'}) }}")
+            }
+            {% endfor %}
+
+            var value1 = $('.radiocontainerprocessor input:radio').is(':checked');
+            var value2 = $('.radiocontainermotherboard input:radio').is(':checked');
+            var value3 = $('.radiocontainermemory input:radio').is(':checked');
+            var value4 = $('.radiocontainerhard input:radio').is(':checked');
+            var value5 = $('.radiocontainervideocard input:radio').is(':checked');
+            var value6 = $('.radiocontainerpowersupply input:radio').is(':checked');
+
+
+            if ( value1 == true && value2==true && value3==true && value4==true && value5 == true && value6 == true )
+            {
+                $(".save").removeClass("disabled")
+            }
+        });
+
+        $('.radiocontainermemory input:radio').click(function() {
+            var selectedVal;
+            var selected = $(".radiocontainermemory input[type='radio']:checked");
+            selectedVal = selected.val();
+            $(".memorytext").text(selectedVal);
+            $(".list").css("display", "block");
+            $("#rambtn").css('visibility', 'visible');
+
+            {% for ram1 in ram1 %}
+            if (selectedVal == "{{ ram1.Name }}")
+            {
+                $("#rambtn").attr("href", "{{ path('ram_show', {'id': '3'}) }}")
+            }
+            {% endfor %}
+
+            {% for ram2 in ram2 %}
+            if (selectedVal == "{{ ram2.Name }}")
+            {
+                $("#rambtn").attr("href", "{{ path('ram_show', {'id': '6'}) }}")
+            }
+            {% endfor %}
+
+            {% for ram3 in ram3 %}
+            if (selectedVal == "{{ ram3.Name }}")
+            {
+                $("#rambtn").attr("href", "{{ path('ram_show', {'id': '10'}) }}")
+            }
+            {% endfor %}
+
+            var value1 = $('.radiocontainerprocessor input:radio').is(':checked');
+            var value2 = $('.radiocontainermotherboard input:radio').is(':checked');
+            var value3 = $('.radiocontainermemory input:radio').is(':checked');
+            var value4 = $('.radiocontainerhard input:radio').is(':checked');
+            var value5 = $('.radiocontainervideocard input:radio').is(':checked');
+            var value6 = $('.radiocontainerpowersupply input:radio').is(':checked');
+
+
+            if ( value1 == true && value2==true && value3==true && value4==true && value5 == true && value6 == true )
+            {
+                $(".save").removeClass("disabled")
+            }
+        });
+
+        $('.radiocontainerhard input:radio').click(function() {
+            var selectedVal;
+            var selected = $(".radiocontainerhard input[type='radio']:checked");
+            selectedVal = selected.val();
+            $(".hardtext").text(selectedVal);
+            $(".list").css("display", "block");
+            $("#hardbtn").css('visibility', 'visible');
+
+            {% for hard1 in hard1 %}
+            if (selectedVal == "{{ hard1.Name }}")
+            {
+                $("#hardbtn").attr("href", "{{ path('hard_show', {'id': '2'}) }}")
+            }
+            {% endfor %}
+
+            {% for hard2 in hard2 %}
+            if (selectedVal == "{{ hard2.Name }}")
+            {
+                $("#hardbtn").attr("href", "{{ path('hard_show', {'id': '4'}) }}")
+            }
+            {% endfor %}
+
+            {% for hard3 in hard3 %}
+            if (selectedVal == "{{ hard3.Name }}")
+            {
+                $("#hardbtn").attr("href", "{{ path('hard_show', {'id': '7'}) }}")
+            }
+            {% endfor %}
+
+            var value1 = $('.radiocontainerprocessor input:radio').is(':checked');
+            var value2 = $('.radiocontainermotherboard input:radio').is(':checked');
+            var value3 = $('.radiocontainermemory input:radio').is(':checked');
+            var value4 = $('.radiocontainerhard input:radio').is(':checked');
+            var value5 = $('.radiocontainervideocard input:radio').is(':checked');
+            var value6 = $('.radiocontainerpowersupply input:radio').is(':checked');
+
+
+            if ( value1 == true && value2==true && value3==true && value4==true && value5 == true && value6 == true )
+            {
+                $(".save").removeClass("disabled")
+            }
+        });
+
+        $('.radiocontainervideocard input:radio').click(function() {
+            var selectedVal;
+            var selected = $(".radiocontainervideocard input[type='radio']:checked");
+            selectedVal = selected.val();
+            $(".videocardtext").text(selectedVal);
+            $(".list").css("display", "block");
+            $("#videocardbtn").css('visibility', 'visible');
+
+            {% for videocard1 in videocard1 %}
+            if (selectedVal == "{{ videocard1.Name }}")
+            {
+                $("#videocardbtn").attr("href", "{{ path('videocard_show', {'id': '2'}) }}")
+            }
+            {% endfor %}
+
+            {% for videocard2 in videocard2 %}
+            if (selectedVal == "{{ videocard2.Name }}")
+            {
+                $("#videocardbtn").attr("href", "{{ path('videocard_show', {'id': '6'}) }}")
+            }
+            {% endfor %}
+
+            {% for videocard3 in videocard3 %}
+            if (selectedVal == "{{ videocard3.Name }}")
+            {
+                $("#videocardbtn").attr("href", "{{ path('videocard_show', {'id': '8'}) }}")
+            }
+            {% endfor %}
+
+            var value1 = $('.radiocontainerprocessor input:radio').is(':checked');
+            var value2 = $('.radiocontainermotherboard input:radio').is(':checked');
+            var value3 = $('.radiocontainermemory input:radio').is(':checked');
+            var value4 = $('.radiocontainerhard input:radio').is(':checked');
+            var value5 = $('.radiocontainervideocard input:radio').is(':checked');
+            var value6 = $('.radiocontainerpowersupply input:radio').is(':checked');
+
+
+            if ( value1 == true && value2==true && value3==true && value4==true && value5 == true && value6 == true )
+            {
+                $(".save").removeClass("disabled")
+            }
+
+        });
+
+        $('.radiocontainerpowersupply input:radio').click(function() {
+            var selectedVal;
+            var selected = $(".radiocontainerpowersupply input[type='radio']:checked");
+            selectedVal = selected.val();
+            $(".powersupplytext").text(selectedVal);
+            $(".list").css("display", "block");
+            $("#powersupplybtn").css('visibility', 'visible');
+            {% for power1 in power1 %}
+            if (selectedVal == "{{ power1.Name }}")
+            {
+                $("#powersupplybtn").attr("href", "{{ path('power_show', {'id': '7'}) }}")
+            }
+            {% endfor %}
+
+            {% for power2 in power2 %}
+            if (selectedVal == "{{ power2.Name }}")
+            {
+                $("#powersupplybtn").attr("href", "{{ path('power_show', {'id': '1'}) }}")
+            }
+            {% endfor %}
+
+            {% for power3 in power3 %}
+            if (selectedVal == "{{ power3.Name }}")
+            {
+                $("#powersupplybtn").attr("href", "{{ path('power_show', {'id': '3'}) }}")
+            }
+            {% endfor %}
+
+            var value1 = $('.radiocontainerprocessor input:radio').is(':checked');
+            var value2 = $('.radiocontainermotherboard input:radio').is(':checked');
+            var value3 = $('.radiocontainermemory input:radio').is(':checked');
+            var value4 = $('.radiocontainerhard input:radio').is(':checked');
+            var value5 = $('.radiocontainervideocard input:radio').is(':checked');
+            var value6 = $('.radiocontainerpowersupply input:radio').is(':checked');
+
+
+            if ( value1 == true && value2==true && value3==true && value4==true && value5 == true && value6 == true )
+            {
+                $(".save").removeClass("disabled")
+            }
+
+
+
+
+        });
+    });
+
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $(".buton").click(function () {
+            $.ajax({
+                url: '{{ path('save') }}',
+                type: 'POST',
+                data: {
+                    processora:$(".processorra").text(),
+                    dunno:$(".dunnoto").text(),
+                    ramta:$(".ramta").text(),
+                    harddiska:$(".harda").text(),
+                    videocartata:$(".videocarta").text(),
+                    zahranvaneto:$(".zahranvane").text(),
+
+                },
+
+                success: function (data) {
+                    console.log(data);
+                    //location.reload();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+
+            });
+            alert("Конфигурацията Ви беше запазена!");
+
+        })
+    });
+
+</script>
+
+</body>
+
+</html>
+

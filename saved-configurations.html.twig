@@ -1,0 +1,1498 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('build/static/logo.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap-theme.min.css">
+
+    <style>
+        body {
+            background-color: #eaeaea;
+        }
+
+        .nav-text {
+
+            color: #2394D5;
+        }
+
+        .nav-text:hover {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .navtext {
+
+            size: 5;
+        }
+
+        #navbar {
+
+            border-bottom: 0.1px solid gray;
+        }
+
+        #footer {
+            border-top: solid 0.5px black;
+        }
+
+        .buttontxt {
+            color: black;
+            text-decoration-line: none;
+        }
+
+        .buttontxt:hover {
+            color: dimgray;
+            text-decoration-line: none;
+        }
+
+        .carousel-item {
+            border: 1px solid black;
+        }
+
+        .h {
+            height: 60%
+        }
+
+        .imgh {
+            height: 31%;
+        }
+
+        .jumbotron {
+            border-radius: 0%;
+        }
+
+        .line {
+            border-bottom: 1px solid dimgray;
+        }
+
+        body,
+        html {
+        }
+
+        .bodyimg {
+            background-image: url("{{ asset('build/static/body.jpg') }}");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .logo1 {
+            height: 14%;
+        }
+
+        .inner {
+            background-color: #eaeaea;
+            border-radius: 5%;
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 1px 1px 1px 1px gray;
+        }
+
+        .card:hover {
+            box-shadow: 1.3px 1.3px 1.3px 1.3px black;
+        }
+
+        .slideanim {
+            visibility: hidden;
+        }
+
+        .slidein {
+            /* The name of the animation */
+            animation-name: slidein;
+            -webkit-animation-name: slidein;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+            visibility: visible;
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .slideout {
+            /* The name of the animation */
+            animation-name: slideout;
+            -webkit-animation-name: slideout;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slideout {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @-webkit-keyframes slideout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .btn1 {
+            border-color: black;
+            background-color: dodgerblue;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .btn1:hover {
+            color: white;
+            border-color: black;
+            background-color: dodgerblue;
+            opacity: 0.8;
+        }
+
+        .img {
+            background-image: -webkit-linear-gradient(left, lightgrey 0%, darkgray 20%, dimgray 50%, darkgray 80%, lightgrey 100%);
+        }
+
+        .th2 {
+            background-color: darkgray;
+            border: 1.5px solid black;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .td2 {
+            background-color: none;
+            border: 1.5px solid black;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .tablecontainer {
+            border-bottom: 1.7px solid black;
+        }
+
+        .loading {
+            width: 6%;
+        }
+        #loading1, #loading2, #loading3, #loading4, #loading5 {
+            display:none;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-md-center collapse show">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('homepage') }}"><img class="img-fluid d-block px-auto mx-auto"
+                                                                       style="width: 45%;"
+                                                                       src="{{ asset('build/static/logo-finished.png') }}"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="navbar sticky-top py-2 navbar-expand-md navbar-light bg-light" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08"
+            aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample08">
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item w-25 slideanim">
+                <img class="" style="width: 22%;" src="{{ asset('build/static/logo.png') }}">
+            </li>
+
+            <li class="nav-item mx-3 my-auto ">
+                <a class="nav-link" href="{{ path('homepage') }}"> <strong>Начало</strong> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('about_us') }}"><strong>За нас</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('compareprices') }}"><strong>Сравняване на цени</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('first_step') }}"><strong>Компютърни конфигурации</strong></a>
+            </li>
+        </ul>
+
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto px-auto my-auto">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Добре дошли,{{ app.user.first }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ path('changepassword') }}">Редактиране на профил</a>
+                        <a class="dropdown-item active" href="{{ path('myconfig') }}">Запазени конфигурации</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" href="{{ path('admin_panel') }}">Администраторски панел</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">Изход</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto mr-3 px-auto my-auto">
+                <div class="btn-group-vertical  btn-group-sm mx-auto" role="group">
+                    <a id="logbutton" class="btn btn-primary text-white" href="{{ path('app_login') }}">Вход</a>
+                    <a id="regbutton" class="btn btn-primary text-white"
+                       href="{{ path('site_register') }}">Регистрация</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container-fluid px-0">
+
+    <div class="bodyimg p-5">
+
+        <div class="container-fluid mt-5 pt-5 inner">
+            <div class="jumbotron line pt-1">
+                <h1 class="display-3">Запазени конфигурации</h1>
+            </div>
+            <div class="container-fluid">
+                {% if config1 is empty and config2 is empty and config3 is empty and config4 is empty and config5 is empty %}
+                    <div class="jumbotron line pt-1">
+                        <h1 class="display-5">Нямате запазени конфигурации.</h1>
+                    </div>
+                {% endif %}
+                {% if config1 is empty %}
+                {% else %}
+                    <div class="container tablecontainer">
+                    <div class="row  py-4 mt-5">
+                        <div class="col-sm-10">
+                            <h3 class="display-5 config1">Конфигурация 1:</h3>
+                            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                <tr>
+                                    <th class="th2"> Процесор:</th>
+                                    <td class="td2 processorche hardtext">{{ config1[0]}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Дънна платка:</th>
+                                    <td class="td2 dunnce hardtext">{{ config1[1] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> RAM памет:</th>
+                                    <td class="td2 ramche hardtext">{{ config1[2] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Твърд диск:</th>
+                                    <td class="td2 hardche hardtext">{{ config1[3] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Видео карта:</th>
+                                    <td class="td2 GPU hardtext">{{ config1[4] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Захранване:</th>
+                                    <td class="td2 powerche hardtext">{{ config1[5] }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-2 my-auto py-auto">
+
+                            <div class="my-2">
+                                <button class="btn btn-primary butonche"> Сметни цена</button>
+                            </div>
+
+                            <div class="my-2">
+                                <button class="btn btn-primary" id="config1show"> Покажи </button>
+                            </div>
+
+                            <a href="">
+                                <div class="my-2">
+                                    <button class="btn btn-danger butona1"> Изтрий</button>
+                                </div>
+                            </a>
+
+                        </div>
+
+                            <div class="col-sm-12 px-auto">
+                            <img class="loading mx-auto" id="loading1" src="{{ asset('build/static/loading3.gif') }}">
+                            </div>
+
+                    </div>
+
+                    <div class="row py-4 mt-5" id="config1prices">
+
+                        <div class="col-sm-10">
+                            <h3 class="display-5">Най-ниски цени:</h3>
+
+
+                            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                <tr>
+                                    <th class="th2">{{ config1[0] }}</th>
+                                    <td class="td2 hardtext" id="processorSite"></td>
+                                    <td class="td2 hardtext" id="processorPrice"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config1[1] }}</th>
+                                    <td class="td2 hardtext" id="motherboardSite"></td>
+                                    <td class="td2 hardtext" id="motherboardPrice"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config1[2] }}</th>
+                                    <td class="td2 hardtext" id="ramSite"></td>
+                                    <td class="td2 hardtext" id="ramPrice"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config1[3] }}</th>
+                                    <td class="td2 hardtext" id="hardSite"></td>
+                                    <td class="td2 hardtext" id="hardPrice"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config1[4] }}</th>
+                                    <td class="td2 hardtext" id="videocardSite"></td>
+                                    <td class="td2 hardtext" id="videocardPrice"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config1[5] }}</th>
+                                    <td class="td2 hardtext" id="powerSite"></td>
+                                    <td class="td2 hardtext" id="powerPrice"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">Обща цена:</th>
+                                    <td class="td2 hardtext"></td>
+                                    <td class="td2 hardtext" id="full"></td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                            <div class="col-sm-2 my-auto py-auto">
+                                <button class="btn btn-secondary" id="config1hide"> Скрий </button>
+                           </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if config2 is empty %}
+                {% else %}
+                    <div class="container tablecontainer">
+                        <div class="row  py-4 mt-5">
+                            <div class="col-sm-10">
+                                <h3 class="display-5 config2">Конфигурация 2:</h3>
+                                <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                    <tr>
+                                        <th class="th2"> Процесор:</th>
+                                        <td class="td2 processorche2 hardtext">{{ config2[0] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Дънна платка:</th>
+                                        <td class="td2 dunnce2 hardtext">{{ config2[1] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> RAM памет:</th>
+                                        <td class="td2 ramche2 hardtext">{{ config2[2] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Твърд диск:</th>
+                                        <td class="td2 hardche2 hardtext">{{ config2[3] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Видео карта:</th>
+                                        <td class="td2 GPU2 hardtext">{{ config2[4] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Захранване:</th>
+                                        <td class="td2 powerche2 hardtext">{{ config2[5] }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-2 my-auto py-auto">
+
+                                <div class="my-2">
+                                    <button class="btn btn-primary butonche2"> Сметни цена</button>
+                                </div>
+
+                                <div class="my-2">
+                                    <button class="btn btn-primary" id="config2show"> Покажи </button>
+                                </div>
+
+                                <a href="">
+                                    <div class="my-2">
+                                        <button class="btn btn-danger butona2"> Изтрий</button>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            <div class="col-sm-12 px-auto">
+                                <img class="loading mx-auto" id="loading2" src="{{ asset('build/static/loading3.gif') }}">
+                            </div>
+
+                        </div>
+
+                        <div class="row py-4 mt-5" id="config2prices">
+
+                            <div class="col-sm-10">
+                                <h3 class="display-5">Най-ниски цени:</h3>
+
+
+                                <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                    <tr>
+                                        <th class="th2">{{ config2[0] }}</th>
+                                        <td class="td2 hardtext" id="processorSite2"></td>
+                                        <td class="td2 hardtext" id="processorPrice2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config2[1] }}</th>
+                                        <td class="td2 hardtext" id="motherboardSite2"></td>
+                                        <td class="td2 hardtext" id="motherboardPrice2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config2[2] }}</th>
+                                        <td class="td2 hardtext" id="ramSite2"></td>
+                                        <td class="td2 hardtext" id="ramPrice2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config2[3] }}</th>
+                                        <td class="td2 hardtext" id="hardSite2"></td>
+                                        <td class="td2 hardtext" id="hardPrice2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config2[4] }}</th>
+                                        <td class="td2 hardtext" id="videocardSite2"></td>
+                                        <td class="td2 hardtext" id="videocardPrice2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config2[5] }}</th>
+                                        <td class="td2 hardtext" id="powerSite2"></td>
+                                        <td class="td2 hardtext" id="powerPrice2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">Обща цена:</th>
+                                        <td class="td2 hardtext" id="full2"></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                            <div class="col-sm-2 my-auto py-auto">
+                                <button class="btn btn-secondary" id="config2hide"> Скрий </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if config3 is empty %}
+                {% else %}
+                    <div class="container tablecontainer">
+                        <div class="row  py-4 mt-5">
+                            <div class="col-sm-10">
+                                <h3 class="display-5 config3">Конфигурация 3:</h3>
+                                <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                    <tr>
+                                        <th class="th2"> Процесор:</th>
+                                        <td class="td2 processorche3 hardtext">{{ config3[0] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Дънна платка:</th>
+                                        <td class="td2 dunnce3 hardtext">{{ config3[1] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> RAM памет:</th>
+                                        <td class="td2 ramche3 hardtext">{{ config3[2] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Твърд диск:</th>
+                                        <td class="td2 hardche3 hardtext">{{ config3[3] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Видео карта:</th>
+                                        <td class="td2 GPU3 hardtext">{{ config3[4] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Захранване:</th>
+                                        <td class="td2 powerche3 hardtext">{{ config3[5] }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-2 my-auto py-auto">
+
+                                <div class="my-2">
+                                    <button class="btn btn-primary butonche3"> Сметни цена</button>
+                                </div>
+
+                                <div class="my-2">
+                                    <button class="btn btn-primary" id="config3show"> Покажи </button>
+                                </div>
+
+                                <a href="">
+                                    <div class="my-2">
+                                        <button class="btn btn-danger butona3"> Изтрий</button>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            <div class="col-sm-12 px-auto">
+                                <img class="loading mx-auto" id="loading3" src="{{ asset('build/static/loading3.gif') }}">
+                            </div>
+
+                        </div>
+
+                        <div class="row py-4 mt-5" id="config3prices">
+
+                            <div class="col-sm-10">
+                                <h3 class="display-5">Най-ниски цени:</h3>
+
+
+                                <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                    <tr>
+                                        <th class="th2">{{ config3[0] }}</th>
+                                        <td class="td2 hardtext" id="processorSite3"></td>
+                                        <td class="td2 hardtext" id="processorPrice3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config3[1] }}</th>
+                                        <td class="td2 hardtext" id="motherboardSite3"></td>
+                                        <td class="td2 hardtext" id="motherboardPrice3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config3[2] }}</th>
+                                        <td class="td2 hardtext" id="ramSite3"></td>
+                                        <td class="td2 hardtext" id="ramPrice3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config3[3] }}</th>
+                                        <td class="td2 hardtext" id="hardSite3"></td>
+                                        <td class="td2 hardtext" id="hardPrice3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config3[4] }}</th>
+                                        <td class="td2 hardtext" id="videocardSite3"></td>
+                                        <td class="td2 hardtext" id="videocardPrice3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config3[5] }}</th>
+                                        <td class="td2 hardtext" id="powerSite3"></td>
+                                        <td class="td2 hardtext" id="powerPrice3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td2 hardtext" id="full3"></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                            <div class="col-sm-2 my-auto py-auto">
+                                <button class="btn btn-secondary" id="config3hide"> Скрий </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if config4 is empty %}
+                {% else %}
+                    <div class="container tablecontainer">
+                        <div class="row  py-4 mt-5">
+                            <div class="col-sm-10">
+                                <h3 class="display-5 config4">Конфигурация 4:</h3>
+                                <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                    <tr>
+                                        <th class="th2"> Процесор:</th>
+                                        <td class="td2 processorche4 hardtext">{{ config4[0] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Дънна платка:</th>
+                                        <td class="td2 dunnce4 hardtext">{{ config4[1] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> RAM памет:</th>
+                                        <td class="td2 ramche4 hardtext">{{ config4[2] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Твърд диск:</th>
+                                        <td class="td2 hardche4 hardtext">{{ config4[3] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Видео карта:</th>
+                                        <td class="td2 GPU4 hardtext">{{ config4[4] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Захранване:</th>
+                                        <td class="td2 powerche4 hardtext">{{ config4[5] }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-2 my-auto py-auto">
+
+                                <div class="my-2">
+                                    <button class="btn btn-primary butonche4"> Сметни цена</button>
+                                </div>
+
+                                <div class="my-2">
+                                    <button class="btn btn-primary" id="config4show"> Покажи </button>
+                                </div>
+
+                                <a href="">
+                                    <div class="my-2">
+                                        <button class="btn btn-danger butona4"> Изтрий</button>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            <div class="col-sm-12 px-auto">
+                                <img class="loading mx-auto" id="loading4" src="{{ asset('build/static/loading3.gif') }}">
+                            </div>
+
+                        </div>
+
+                        <div class="row py-4 mt-5" id="config4prices">
+
+                            <div class="col-sm-10">
+                                <h3 class="display-5">Най-ниски цени:</h3>
+
+
+                                <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                    <tr>
+                                        <th class="th2">{{ config4[0] }}</th>
+                                        <td class="td2 hardtext" id="processorSite4"></td>
+                                        <td class="td2 hardtext" id="processorPrice4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config4[1] }}</th>
+                                        <td class="td2 hardtext" id="motherboardSite4"></td>
+                                        <td class="td2 hardtext" id="motherboardPrice4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config4[2] }}</th>
+                                        <td class="td2 hardtext" id="ramSite4"></td>
+                                        <td class="td2 hardtext" id="ramPrice4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config4[3] }}</th>
+                                        <td class="td2 hardtext" id="hardSite4"></td>
+                                        <td class="td2 hardtext" id="hardPrice4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config4[4] }}</th>
+                                        <td class="td2 hardtext" id="videocardSite4"></td>
+                                        <td class="td2 hardtext" id="videocardPrice4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config4[5] }}</th>
+                                        <td class="td2 hardtext" id="powerSite4"></td>
+                                        <td class="td2 hardtext" id="powerPrice4"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td2 hardtext" id="full4"></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                            <div class="col-sm-2 my-auto py-auto">
+                                <button class="btn btn-secondary" id="config4hide"> Скрий </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if config5 is empty %}
+                {% else %}
+                    <div class="container tablecontainer">
+                        <div class="row  py-4 mt-5">
+                            <div class="col-sm-10">
+                                <h3 class="display-5 config5">Конфигурация 5:</h3>
+                                <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                    <tr>
+                                        <th class="th2"> Процесор:</th>
+                                        <td class="td2 processorche5 hardtext">{{ config5[0] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Дънна платка:</th>
+                                        <td class="td2 dunnce5 hardtext">{{ config5[1] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> RAM памет:</th>
+                                        <td class="td2 ramche5 hardtext">{{ config5[2] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Твърд диск:</th>
+                                        <td class="td2 hardche5 hardtext">{{ config5[3] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Видео карта:</th>
+                                        <td class="td2 GPU5 hardtext">{{ config5[4] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2"> Захранване:</th>
+                                        <td class="td2 powerche5 hardtext">{{ config5[5] }}</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="col-2 my-auto py-auto">
+
+                                <div class="my-2">
+                                    <button class="btn btn-primary butonche5"> Сметни цена</button>
+                                </div>
+
+                                <div class="my-2">
+                                    <button class="btn btn-primary" id="config5show"> Покажи </button>
+                                </div>
+
+                                <a href="">
+                                    <div class="my-2">
+                                        <button class="btn btn-danger butona5"> Изтрий</button>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            <div class="col-sm-12 px-auto">
+                                <img class="loading mx-auto"  id="loading5" src="{{ asset('build/static/loading3.gif') }}">
+                            </div>
+
+                        </div>
+
+                        <div class="row py-4 mt-5" id="config5prices">
+
+                            <div class="col-sm-10">
+                                <h3 class="display-5">Най-ниски цени:</h3>
+
+
+                                <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                    <tr>
+                                        <th class="th2">{{ config5[0] }}</th>
+                                        <td class="td2 hardtext" id="processorSite5"></td>
+                                        <td class="td2 hardtext" id="processorPrice5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config5[1] }}</th>
+                                        <td class="td2 hardtext" id="motherboardSite5"></td>
+                                        <td class="td2 hardtext" id="motherboardPrice5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config5[2] }}</th>
+                                        <td class="td2 hardtext" id="ramSite5"></td>
+                                        <td class="td2 hardtext" id="ramPrice5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config5[3] }}</th>
+                                        <td class="td2 hardtext" id="hardSite5"></td>
+                                        <td class="td2 hardtext" id="hardPrice5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config5[4] }}</th>
+                                        <td class="td2 hardtext" id="videocardSite5"></td>
+                                        <td class="td2 hardtext" id="videocardPrice5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th2">{{ config5[5] }}</th>
+                                        <td class="td2 hardtext" id="powerSite5"></td>
+                                        <td class="td2 hardtext" id="powerPrice5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td2 hardtext" id="full5"></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                            <div class="col-sm-2 my-auto py-auto">
+                                <button class="btn btn-secondary" id="config5hide"> Скрий </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+</div>
+<footer class="container py-5 mt-3 " id="footer">
+    <div class="row ">
+        <div class="col-12 col-md ">
+            <img class="w-25" src="{{ asset('build/static/logo.png') }}">
+            <small class="d-block mb-3 text-muted ">© 2019</small>
+        </div>
+        <div class="col-6 col-md ">
+            <h5>Секции</h5>
+            <ul class="list-unstyled text-small ">
+                <li><a class="text-muted " href="{{ path('homepage') }}">Начало</a></li>
+                <li><a class="text-muted " href="{{ path('about_us') }}">За нас</a></li>
+                <li><a class="text-muted " href="{{ path('compareprices') }}">Сравняване на цени</a></li>
+                <li><a class="text-muted " href="{{ path('first_step') }}">Компютърни конфигурации</a></li>
+            </ul>
+        </div>
+
+        <div class="col-6 col-md ">
+            <h5>За връзка:</h5>
+            <ul class="list-unstyled text-small">
+                <li class="text-muted">dragomirvasilev23@gmail.com</li>
+                <li class="text-muted">ben669@abv.bg</li>
+            </ul>
+        </div>
+        <div class="col-6 mt-5 col-md">
+            <a href="#" id="scroll"><img class="logo1" src="{{ asset('build/static/arrowup.png') }}"></a>
+
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#scroll').click(function () {
+            $("html, body").animate({scrollTop: 0}, 600);
+            return false;
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
+        crossorigin="anonymous "></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
+        crossorigin="anonymous "></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(function () {
+            if ($(this).scrollTop() > 200) {
+                $(".slideanim").addClass("slidein");
+            }
+            var fl = 0;
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 150) {
+                    $(".slideanim").removeClass("slideout");
+                    $(".slideanim").addClass("slidein");
+                    fl = 1;
+                }
+
+                if ($(this).scrollTop() < 150 && fl == 1) {
+                    $(".slideanim").removeClass("slidein");
+                    $(".slideanim").addClass("slideout");
+                    fl = 0;
+                }
+            });
+
+            $("#config1prices").hide();
+
+            $("#config1show").hide();
+
+            $("#config1hide").click(function(){
+                $("#config1prices").slideUp();
+                if($(".butonche").is(":hidden"))
+                {
+                    $("#config1show").fadeIn();
+                }
+            });
+
+            $("#config1show").click(function(){
+                $("#config1prices").slideDown();
+            });
+
+            $("#config2prices").hide();
+
+            $("#config2show").hide();
+
+            $("#config2hide").click(function(){
+                $("#config2prices").slideUp();
+                if($(".butonche2").is(":hidden"))
+                {
+                    $("#config2show").fadeIn();
+                }
+            });
+
+            $("#config2show").click(function(){
+                $("#config2prices").slideDown();
+            });
+
+            $("#config3prices").hide();
+
+            $("#config3show").hide();
+
+            $("#config3hide").click(function(){
+                $("#config3prices").slideUp();
+                if($(".butonche3").is(":hidden"))
+                {
+                    $("#config3show").fadeIn();
+                }
+            });
+
+            $("#config3show").click(function(){
+                $("#config3prices").slideDown();
+            });
+
+            $("#config4prices").hide();
+
+            $("#config4show").hide();
+
+            $("#config4hide").click(function(){
+                $("#config4prices").slideUp();
+                if($(".butonche4").is(":hidden"))
+                {
+                    $("#config4show").fadeIn();
+                }
+            });
+
+            $("#config4show").click(function(){
+                $("#config4prices").slideDown();
+            });
+
+            $("#config5prices").hide();
+
+            $("#config5show").hide();
+
+            $("#config5hide").click(function(){
+                $("#config5prices").slideUp();
+                if($(".butonche5").is(":hidden"))
+                {
+                    $("#config5show").fadeIn();
+                }
+            });
+
+            $("#config5show").click(function(){
+                $("#config5prices").slideDown();
+            });
+
+
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".cherta1").click(function () {
+            $(".cherta1").css("background-color", "darkgray");
+            $(".cherta2").css("background-color", "black");
+            $(".cherta3").css("background-color", "black");
+        });
+        $(".cherta2").click(function () {
+            $(".cherta1").css("background-color", "black");
+            $(".cherta2").css("background-color", "darkgray");
+            $(".cherta3").css("background-color", "black");
+        });
+        $(".cherta3").click(function () {
+            $(".cherta1").css("background-color", "black");
+            $(".cherta2").css("background-color", "black");
+            $(".cherta3").css("background-color", "darkgray");
+        });
+    });
+
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butona1").click(function () {
+            $.ajax({
+                url: '{{ path('button_delete_1') }}',
+                type: 'POST',
+                data: {
+                    Name1: $(".config1").text()
+                },
+
+                success: function (data) {
+                    alert("Конфигурацията беше изтрита успешно.");
+                    //location.reload();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+
+            });
+
+
+        })
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butona2").click(function () {
+            $.ajax({
+                url: '{{ path('button_delete_2') }}',
+                type: 'POST',
+                data: {
+                    Name2: $(".config2").text()
+                },
+
+                success: function (data) {
+                    alert("Конфигурацията беше изтрита успешно.");
+
+                  //location.reload();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+
+            });
+
+
+        })
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butona3").click(function () {
+            $.ajax({
+                url: '{{ path('button_delete_3') }}',
+                type: 'POST',
+                data: {
+                    Name3: $(".config3").text()
+                },
+
+                success: function (data) {
+                    alert("Конфигурацията беше изтрита успешно.");
+
+                    //location.reload();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+
+            });
+
+
+        })
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butona4").click(function () {
+            $.ajax({
+                url: '{{ path('button_delete_4') }}',
+                type: 'POST',
+                data: {
+                    Name4: $(".config4").text()
+                },
+
+                success: function (data) {
+                    alert("Конфигурацията беше изтрита успешно.");
+                    //location.reload();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+
+            });
+
+
+        })
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butona5").click(function () {
+            $.ajax({
+                url: '{{ path('button_delete_5') }}',
+                type: 'POST',
+                data: {
+                    Name5: $(".config5").text()
+                },
+
+                success: function (data) {
+                    alert("Конфигурацията беше изтрита успешно.");
+                    //location.reload();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+
+            });
+
+
+        })
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butonche2").click(function () {
+            $("#loading2").css('display', 'block');
+            $.ajax({
+                url: '{{ path('button_calculate2') }}',
+                type: 'POST',
+                data: {
+                    Processor2: $(".processorche2").text(),
+                    Dunno2: $(".dunnce2").text(),
+                    RAM2: $(".ramche2").text(),
+                    Hard2: $(".hardche2").text(),
+                    GPU2: $(".GPU2").text(),
+                    Power2: $(".powerche2").text(),
+
+                },
+
+                success: displayResult2,
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+
+
+        });
+
+        function displayResult2(response2) {
+            $("#loading2").css('display', 'none');
+            //DRAGO TUKA POKAZVASH SKRITATA TABLICA
+            // let pcParts = [{'lowestPriceSite': 'EMAG', 'lowestPrice': 500},  {'lowestPriceSIte': 'ARdes', 'lowestPrice': 300}];
+            let siteTextKey = 'lowestPriceSite';
+            let priceKey = 'lowestPrice';
+            let pcParts = JSON.parse(response2);
+            let processor = pcParts[0];
+            let motherboard = pcParts[1];
+            let ram = pcParts[2];
+            let hard = pcParts[3];
+            let gpu = pcParts[4];
+            let power = pcParts[5];
+
+            $('#processorSite2').text(processor[siteTextKey]);
+            $('#processorPrice2').text(processor[priceKey]);
+
+            $('#motherboardSite2').text(motherboard[siteTextKey]);
+            $('#motherboardPrice2').text(motherboard[priceKey]);
+
+            $('#ramSite2').text(ram[siteTextKey]);
+            $('#ramPrice2').text(ram[priceKey]);
+
+            $('#hardSite2').text(hard[siteTextKey]);
+            $('#hardPrice2').text(hard[priceKey]);
+
+            $('#videocardSite2').text(gpu[siteTextKey]);
+            $('#videocardPrice2').text(gpu[priceKey]);
+
+            $('#powerSite2').text(power[siteTextKey]);
+            $('#powerPrice2').text(power[priceKey]);
+
+            let full=processor[priceKey]+motherboard[priceKey]+ram[priceKey]+hard[priceKey]+gpu[priceKey]+power[priceKey]
+            $('#full2').text(full);
+
+            $(".butonche2").fadeOut();
+
+            $("#config2prices").slideDown();
+
+
+        }
+
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butonche").click(function () {
+                $("#loading1").css('display', 'block');
+            $.ajax({
+                url: '{{ path('button_calculate') }}',
+                type: 'POST',
+                data: {
+                    Processor: $(".processorche").text(),
+                    Dunno: $(".dunnce").text(),
+                    RAM: $(".ramche").text(),
+                    Hard: $(".hardche").text(),
+                    GPU: $(".GPU").text(),
+                    Power: $(".powerche").text(),
+
+                },
+
+                success: displayResult,
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+
+
+        });
+
+        function displayResult(response) {
+            $("#loading1").css('display', 'none');
+            //DRAGO TUKA POKAZVASH SKRITATA TABLICA
+            // let pcParts = [{'lowestPriceSite': 'EMAG', 'lowestPrice': 500},  {'lowestPriceSIte': 'ARdes', 'lowestPrice': 300}];
+            let siteTextKey = 'lowestPriceSite';
+            let priceKey = 'lowestPrice';
+            let pcParts = JSON.parse(response);
+            let processor = pcParts[0];
+            let motherboard = pcParts[1];
+            let ram = pcParts[2];
+            let hard = pcParts[3];
+            let gpu = pcParts[4];
+            let power = pcParts[5];
+
+            $('#processorSite').text(processor[siteTextKey]);
+            $('#processorPrice').text(processor[priceKey]);
+
+            $('#motherboardSite').text(motherboard[siteTextKey]);
+            $('#motherboardPrice').text(motherboard[priceKey]);
+
+            $('#ramSite').text(ram[siteTextKey]);
+            $('#ramPrice').text(ram[priceKey]);
+
+            $('#hardSite').text(hard[siteTextKey]);
+            $('#hardPrice').text(hard[priceKey]);
+
+            $('#videocardSite').text(gpu[siteTextKey]);
+            $('#videocardPrice').text(gpu[priceKey]);
+
+            $('#powerSite').text(power[siteTextKey]);
+            $('#powerPrice').text(power[priceKey]);
+
+            let full=processor[priceKey]+motherboard[priceKey]+ram[priceKey]+hard[priceKey]+gpu[priceKey]+power[priceKey]
+            $('#full').text(full);
+            $(".butonche").fadeOut();
+
+            $("#config1prices").slideDown();
+
+
+        }
+
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butonche3").click(function () {
+            $("#loading3").css('display', 'block');
+            $.ajax({
+                url: '{{ path('button_calculate3') }}',
+                type: 'POST',
+                data: {
+                    Processor3: $(".processorche3").text(),
+                    Dunno3: $(".dunnce3").text(),
+                    RAM3: $(".ramche3").text(),
+                    Hard3: $(".hardche3").text(),
+                    GPU3: $(".GPU3").text(),
+                    Power3: $(".powerche3").text(),
+
+                },
+
+                success: displayResult3,
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+
+
+        });
+
+        function displayResult3(response3) {
+            $("#loading3").css('display', 'none');
+            //DRAGO TUKA POKAZVASH SKRITATA TABLICA
+            // let pcParts = [{'lowestPriceSite': 'EMAG', 'lowestPrice': 500},  {'lowestPriceSIte': 'ARdes', 'lowestPrice': 300}];
+            let siteTextKey = 'lowestPriceSite';
+            let priceKey = 'lowestPrice';
+            let pcParts = JSON.parse(response3);
+            let processor = pcParts[0];
+            let motherboard = pcParts[1];
+            let ram = pcParts[2];
+            let hard = pcParts[3];
+            let gpu = pcParts[4];
+            let power = pcParts[5];
+
+            $('#processorSite3').text(processor[siteTextKey]);
+            $('#processorPrice3').text(processor[priceKey]);
+
+            $('#motherboardSite3').text(motherboard[siteTextKey]);
+            $('#motherboardPrice3').text(motherboard[priceKey]);
+
+            $('#ramSite3').text(ram[siteTextKey]);
+            $('#ramPrice3').text(ram[priceKey]);
+
+            $('#hardSite3').text(hard[siteTextKey]);
+            $('#hardPrice3').text(hard[priceKey]);
+
+            $('#videocardSite3').text(gpu[siteTextKey]);
+            $('#videocardPrice3').text(gpu[priceKey]);
+
+            $('#powerSite3').text(power[siteTextKey]);
+            $('#powerPrice3').text(power[priceKey]);
+
+            let full=processor[priceKey]+motherboard[priceKey]+ram[priceKey]+hard[priceKey]+gpu[priceKey]+power[priceKey]
+            $('#full3').text(full);
+
+            $(".butonche3").fadeOut();
+
+            $("#config3prices").slideDown();
+
+
+        }
+
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butonche4").click(function () {
+            $("#loading4").css('display', 'block');
+            $.ajax({
+                url: '{{ path('button_calculate4') }}',
+                type: 'POST',
+                data: {
+                    Processor4: $(".processorche4").text(),
+                    Dunno4: $(".dunnce4").text(),
+                    RAM4: $(".ramche4").text(),
+                    Hard4: $(".hardche4").text(),
+                    GPU4: $(".GPU4").text(),
+                    Power4: $(".powerche4").text(),
+
+                },
+
+                success: displayResult4,
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+
+
+        });
+
+        function displayResult4(response4) {
+            $("#loading4").css('display', 'none');
+            //DRAGO TUKA POKAZVASH SKRITATA TABLICA
+            // let pcParts = [{'lowestPriceSite': 'EMAG', 'lowestPrice': 500},  {'lowestPriceSIte': 'ARdes', 'lowestPrice': 300}];
+            let siteTextKey = 'lowestPriceSite';
+            let priceKey = 'lowestPrice';
+            let pcParts = JSON.parse(response4);
+            let processor = pcParts[0];
+            let motherboard = pcParts[1];
+            let ram = pcParts[2];
+            let hard = pcParts[3];
+            let gpu = pcParts[4];
+            let power = pcParts[5];
+
+            $('#processorSite4').text(processor[siteTextKey]);
+            $('#processorPrice4').text(processor[priceKey]);
+
+            $('#motherboardSite4').text(motherboard[siteTextKey]);
+            $('#motherboardPrice4').text(motherboard[priceKey]);
+
+            $('#ramSite4').text(ram[siteTextKey]);
+            $('#ramPrice4').text(ram[priceKey]);
+
+            $('#hardSite4').text(hard[siteTextKey]);
+            $('#hardPrice4').text(hard[priceKey]);
+
+            $('#videocardSite4').text(gpu[siteTextKey]);
+            $('#videocardPrice4').text(gpu[priceKey]);
+
+            $('#powerSite4').text(power[siteTextKey]);
+            $('#powerPrice4').text(power[priceKey]);
+
+            let full=processor[priceKey]+motherboard[priceKey]+ram[priceKey]+hard[priceKey]+gpu[priceKey]+power[priceKey]
+            $('#full4').text(full);
+
+            $(".butonche4").fadeOut();
+
+            $("#config4prices").slideDown();
+        }
+
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".butonche5").click(function () {
+            $("#loading5").css('display', 'block');
+            $.ajax({
+                url: '{{ path('button_calculate5') }}',
+                type: 'POST',
+                data: {
+                    Processor5: $(".processorche5").text(),
+                    Dunno5: $(".dunnce5").text(),
+                    RAM5: $(".ramche5").text(),
+                    Hard5: $(".hardche5").text(),
+                    GPU5: $(".GPU5").text(),
+                    Power5: $(".powerche5").text(),
+
+                },
+
+                success: displayResult5,
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+
+
+        });
+
+        function displayResult5(response) {
+            $("#loading5").css('display', 'none');
+            //DRAGO TUKA POKAZVASH SKRITATA TABLICA
+            // let pcParts = [{'lowestPriceSite': 'EMAG', 'lowestPrice': 500},  {'lowestPriceSIte': 'ARdes', 'lowestPrice': 300}];
+            let siteTextKey = 'lowestPriceSite';
+            let priceKey = 'lowestPrice';
+            let pcParts = JSON.parse(response);
+            let processor = pcParts[0];
+            let motherboard = pcParts[1];
+            let ram = pcParts[2];
+            let hard = pcParts[3];
+            let gpu = pcParts[4];
+            let power = pcParts[5];
+
+            $('#processorSite5').text(processor[siteTextKey]);
+            $('#processorPrice5').text(processor[priceKey]);
+
+            $('#motherboardSite5').text(motherboard[siteTextKey]);
+            $('#motherboardPrice5').text(motherboard[priceKey]);
+
+            $('#ramSite5').text(ram[siteTextKey]);
+            $('#ramPrice5').text(ram[priceKey]);
+
+            $('#hardSite5').text(hard[siteTextKey]);
+            $('#hardPrice5').text(hard[priceKey]);
+
+            $('#videocardSite5').text(gpu[siteTextKey]);
+            $('#videocardPrice5').text(gpu[priceKey]);
+
+            $('#powerSite5').text(power[siteTextKey]);
+            $('#powerPrice5').text(power[priceKey]);
+
+            let full=processor[priceKey]+motherboard[priceKey]+ram[priceKey]+hard[priceKey]+gpu[priceKey]+power[priceKey]
+            $('#full5').text(full);
+
+            $(".butonche5").fadeOut();
+
+            $("#config5prices").slideDown();
+        }
+
+    });
+</script>
+</body>
+
+</html>

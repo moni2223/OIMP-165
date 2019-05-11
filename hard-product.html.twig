@@ -1,0 +1,401 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('build/static/logo.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap-theme.min.css">
+    <link href="product.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #efefef;
+
+        }
+
+        .nav-text {
+            color: darkgray;
+
+        }
+
+        .nav-text:hover {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .navtext {
+            size: 5;
+        }
+
+        #navbar {
+
+            border-bottom: 0.1px solid gray;
+        }
+
+        .active1:hover {
+            background-color: gray;
+        }
+
+        .active1:click {
+            background-color: none;
+        }
+
+        #footer {
+            border-top: solid 0.5px gray;
+        }
+
+        .bodyimg {
+            background-image: url("{{ asset('build/static/body.jpg') }}");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .logo1 {
+            width: 35%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .inner {
+            background-color: #eaeaea;
+            border-radius: 15px;
+            box-shadow: 4px 4px 4px 5px;
+        }
+
+
+
+        .th1,
+        .td1 {
+            background-color: lightgray;
+            border: 1px solid white;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .prices {
+            box-shadow: 3px 3px 4px black;
+        }
+
+        .th2 {
+            background-color: darkgray;
+            border: 2px solid black;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .td2 {
+            background-color: lightgray;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .info1,
+        .info2,
+        .info3 {
+            display: none;
+            border-radius: 25px;
+            background-color: #FFE4B5;
+            font-style: italic;
+            font-weight: lighter;
+        }
+
+        .logo1 {
+            width: 40%
+        }
+
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0" id="kotva">
+    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample05">
+        <div class="row mr-auto ml-auto">
+            <div class="col-12"><a class="navbar-brand" href="{{ path('homepage') }}"><img class="logo1" src="{{ asset('build/static/logo-finished.png') }}"></a></div>
+        </div>
+    </div>
+</nav>
+<nav class="navbar sticky-top py-2 navbar-expand-md navbar-light bg-light" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample08">
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item w-25 slideanim" >
+                <img class="" style= "width: 22%;" src="{{ asset('build/static/logo.png') }}">
+            </li>
+
+            <li class="nav-item mx-3 my-auto ">
+                <a class="nav-link" href="{{ path('homepage') }}"> <strong>Начало</strong> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('about_us') }}"><strong>За нас</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('compareprices') }}"><strong>Сравняване на цени</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('first_step') }}"><strong>Компютърни конфигурации</strong></a>
+            </li>
+        </ul>
+
+
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto px-auto my-auto">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Добре дошли,{{ app.user.first }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ path('changepassword') }}">Редактиране на профил</a>
+                        <a class="dropdown-item" href="{{ path('myconfig') }}">Запазени конфигурации</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" href="{{ path('admin_panel') }}">Администраторски панел</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">Изход</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto mr-3 px-auto my-auto">
+                <div class="btn-group-vertical  btn-group-sm mx-auto" role="group">
+                    <a  id="logbutton" class="btn btn-primary text-white" href="{{ path('app_login') }}">Вход</a>
+                    <a id="regbutton" class="btn btn-primary text-white"href="{{ path('site_register') }}">Регистрация</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+<div class="container-fluid px-0">
+
+
+    <div class="bodyimg p-5">
+        <div class="container-fluid mt-5 pt-5 inner">
+            <div class="container">
+                <h1 class="display-5 ml-5 font-weight-normal">{{ hard.name }}</h1>
+            </div>
+            <div class="row">
+
+                <div class="col-md-4 ml-2 mt-5">
+
+                    <img class="w-100 " src="{{ hard.image }}">
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-6 mt-5">
+
+                    <h3 class="display-5 ml-3 font-weight-normal">Характеристики: </h3>
+                    <table class="char">
+                        <tr>
+                            <th class="th1"> Вид </th>
+                            <td class="td1"> Хард диск </td>
+                        </tr>
+                        <tr>
+                            <th class="th1"> Капацитет </th>
+                            <td class="td1"> {{ hard.capacity }} </td>
+                        </tr>
+                        <tr>
+                            <th class="th1"> Скорост на диска <img style="width: 5%;" class="info-trigger1" src="{{ asset('build/static/i.png') }}">
+                                <div style="position: absolute;" class="p-1 info1">
+                                    <p>Колкото по-висока е скоростта, толкова по-бързо става четенето на данните запазени на диска.</p>
+                                </div>
+                            </th>
+                            <td class="td1"> {{ hard.speed }} </td>
+                        </tr>
+                        <tr>
+                            <th class="th1"> Cache размер <img style="width: 5%;" class="info-trigger2" src="{{ asset('build/static/i.png') }}">
+                                <div style="position: absolute;" class="p-1 info2">
+                                    <p> Колкото е по-голяма Cache паметта, толкова повече приложения могат да стартират наведнъж оттам, и с това и работата на програмите се ускорява. </p>
+                                </div>
+                            </th>
+
+                            <td class="td1"> {{ hard.cache }} </td>
+                        </tr>
+                        <tr>
+                            <th class="th1"> Максимален пренос на данни </th>
+                            <td class="td1"> {{ hard.maxspeed }} </td>
+                        </tr>
+                        <tr>
+                            <th class="th1"> Твърд диск за лаптоп <img style="width: 5%;" class="info-trigger3" src="{{ asset('build/static/i.png') }}">
+                                <div style="position: absolute;" class="p-1 info3">
+                                    <p>Твърдите дискове за лаптоп са по-малки на размер, но цената им е по-висока, затова не е препоръчителна употребата им за настолни компютърни конфигурации.</p>
+                                </div>
+                            </th>
+                            <td class="td1"> {{ hard.laptop }} </td>
+                        </tr>
+                        <tr>
+                            <th class="th1"> Интерфейс </th>
+                            <td class="td1"> {{ hard.interface }} </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            <div class="row mt-5">
+
+                <div class="col-md-12">
+                    <table class="prices w-100 h-25">
+                        <tr>
+                            <th class="th2"> Уебсайт: </th>
+                            <th class="th2"> Цена: </th>
+                            <th class="th2"> Към сайта: </th>
+                        </tr>
+
+                        <tr>
+                            <td class="td2"> Desktop.bg </td>
+                            <td class="td2">
+                                <h4 class="font-weight-normal"> {{ hard.pricedew }}лв. </h4>
+                            </td>
+                            <td class="td2">
+                                <a href="{{ hard.urldes }}">
+                            Към магазина
+                        </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td2"> Ardes.bg </td>
+                            <td class="td2">
+                                <h4 class="font-weight-normal"> {{ hard.priceardes }}лв. </h4>
+                            </td>
+                            <td class="td2">
+                                <a href="{{ hard.urlardes }}">
+                            Към магазина
+                        </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td2"> Emag.bg</td>
+                            <td class="td2">
+                                <h4 class="font-weight-normal"> {{ hard.priceemag }}лв. </h4>
+                            </td>
+                            <td class="td2">
+                                <a href="{{ hard.urlemag }}">
+                            Към магазина
+                        </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td2"> jarcomputers.com</td>
+                            <td class="td2">
+                                <h4 class="font-weight-normal"> {{ hard.pricejar }}лв. </h4>
+                            </td>
+                            <td class="td2">
+                                <a href="{{ hard.urljar }}">
+                            Към магазина
+                        </a>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="row mt-4 pb-0">
+                        <div class="col-md-12">
+                            <p><strong>*Всички цени в нашия сайт винаги са актуални!</strong></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p><strong>*Ако някоя цена е 0лв., то продукта вече не е наличен на съответния сайт!</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <footer class="container py-5 mt-3 " id="footer">
+        <div class="row ">
+            <div class="col-12 col-md ">
+                <img class="w-25" src="{{ asset('build/static/logo.png') }}">
+                <small class="d-block mb-3 text-muted ">© 2019</small>
+            </div>
+            <div class="col-6 col-md ">
+                <h5>Секции</h5>
+                <ul class="list-unstyled text-small ">
+                    <li><a class="text-muted " href="{{ path('homepage') }}">Начало</a></li>
+                    <li><a class="text-muted " href="{{ path('about_us') }}">За нас</a></li>
+                    <li><a class="text-muted " href="{{ path('compareprices') }}">Сравняване на цени</a></li>
+                    <li><a class="text-muted " href="{{ path('first_step') }}">Компютърни конфигурации</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-6 col-md ">
+                <h5>За връзка:</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="text-muted">dragomirvasilev23@gmail.com</li>
+                    <li class="text-muted">ben669@abv.bg</li>
+                </ul>
+            </div>
+            <div class="col-6 mt-5 col-md">
+
+                <a href="#" id="scroll"><img class="logo1" src="{{ asset('build/static/arrowup.png') }}"></a>
+
+            </div>
+        </div>
+    </footer>
+<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#scroll').click(function () {
+            $("html, body").animate({scrollTop: 0}, 600);
+            return false;
+        });
+    });
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $(".info-trigger1").mouseenter(function() {
+                $(".info1").css('display', 'inline-block');
+            });
+
+            $(".info-trigger1").mouseleave(function() {
+                $(".info1").css('display', 'none');
+            });
+
+            $(".info-trigger2").mouseenter(function() {
+                $(".info2").css('display', 'inline-block');
+            });
+
+            $(".info-trigger2").mouseleave(function() {
+                $(".info2").css('display', 'none');
+            });
+
+            $(".info-trigger3").mouseenter(function() {
+                $(".info3").css('display', 'inline-block');
+            });
+
+            $(".info-trigger3").mouseleave(function() {
+                $(".info3").css('display', 'none');
+            });
+
+
+
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>

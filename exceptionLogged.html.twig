@@ -1,0 +1,260 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('build/static/logo.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap-theme.min.css">
+
+    <style>
+        body
+        {
+            background-color:#eaeaea;
+        }
+        .nav-text {
+
+            color: #2394D5;
+        }
+
+        .nav-text:hover {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .navtext {
+
+            size: 5;
+        }
+
+        #navbar {
+
+            border-bottom: 0.1px solid gray;
+        }
+
+        #footer {
+            border-top: solid 0.5px black;
+        }
+
+
+        .buttontxt {
+            color: black;
+            text-decoration-line: none;
+        }
+
+        .buttontxt:hover {
+            color: dimgray;
+            text-decoration-line: none;
+        }
+
+
+        .carousel-item {
+            border: 1px solid black;
+        }
+
+        .h {
+            height: 60%
+        }
+
+        .imgh {
+            height: 31%;
+        }
+
+        .jumbotron{
+            border-radius: 0%;
+        }
+
+        .line{
+            border-bottom: 1px solid dimgray;
+        }
+        body,
+        html {}
+
+        .bodyimg {
+            background-image: url("{{ asset('build/static/body.jpg') }}");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .logo1 {
+            height:14%;
+        }
+
+        .inner {
+            background-color: #eaeaea;
+            border-radius: 5%;
+        }
+.card{
+    background-color:white;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+        .card:hover{
+            box-shadow: 1.3px 1.3px 1.3px 1.3px black;
+        }
+
+        .slideanim { visibility: hidden;}
+        .slidein {
+            /* The name of the animation */
+            animation-name: slidein;
+            -webkit-animation-name: slidein;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+            visibility: visible;
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .slideout {
+            /* The name of the animation */
+            animation-name: slideout;
+            -webkit-animation-name: slideout;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slideout {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        @-webkit-keyframes slideout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .btn1{
+            border-color: black;
+            background-color: dodgerblue;
+            color:white;
+            opacity: 0.9;
+        }
+
+        .btn1:hover{
+            color:white;
+            border-color: black;
+            background-color: dodgerblue;
+            opacity: 0.8;
+        }
+
+        .img{
+       background-image: -webkit-linear-gradient(left, lightgrey 0%, darkgray 20%, dimgray 50%, darkgray 80%, lightgrey 100%);
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<div class="container-fluid px-0">
+
+
+    <div class="bodyimg p-5">
+
+        <div class="container-fluid mt-5 pt-5 inner">
+            <div class="jumbotron line pt-1">
+                <div class="container-fluid">
+                    <h1 class="display-3"> Вече сте влезли в профила си!</h1>
+                    <a href="{{ path ('homepage') }}"> <button class="btn btn-primary btn-lg"> Към началната страница </button></a>
+                    <div class="row mt-5">
+                        <div class="col-8">
+                            <img src="{{ asset('build/static/123.jpg') }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+    </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+<script>
+
+</script>
+<script>
+    $(document).ready(function() {
+        $(function () {
+            if ($(this).scrollTop() > 200) {
+                $(".slideanim").addClass("slidein");
+            }
+         var fl=0;
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 150) {
+                    $(".slideanim").removeClass("slideout");
+                    $(".slideanim").addClass("slidein");
+                    fl=1;
+                }
+
+                 if ($(this).scrollTop() < 150 && fl==1) {
+                    $(".slideanim").removeClass("slidein");
+                    $(".slideanim").addClass("slideout");
+                    fl=0;
+                }
+
+
+            });
+        });
+    });
+</script>
+    <script>
+        $(document).ready(function() {
+            $(".cherta1").click(function() {
+                $(".cherta1").css("background-color", "darkgray");
+                $(".cherta2").css("background-color", "black");
+                $(".cherta3").css("background-color", "black");
+            });
+            $(".cherta2").click(function() {
+                $(".cherta1").css("background-color", "black");
+                $(".cherta2").css("background-color", "darkgray");
+                $(".cherta3").css("background-color", "black");
+            });
+            $(".cherta3").click(function() {
+                $(".cherta1").css("background-color", "black");
+                $(".cherta2").css("background-color", "black");
+                $(".cherta3").css("background-color", "darkgray");
+            });
+        });
+
+    </script>
+</body>
+
+</html>

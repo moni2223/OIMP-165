@@ -1,0 +1,467 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('build/static/logo.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap-theme.min.css">
+
+    <style>
+        body {
+            background-color: #eaeaea;
+        }
+
+        .nav-text {
+
+            color: #2394D5;
+        }
+
+        .nav-text:hover {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .navtext {
+
+            size: 5;
+        }
+
+        #navbar {
+
+            border-bottom: 0.1px solid gray;
+        }
+
+        .bodyimg {
+            background-image: url("{{ asset('build/static/body.jpg') }}");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .logo1 {
+            height: 18%;
+        }
+
+        .inner {
+            background-color: #eaeaea;
+            border-radius: 5%;
+        }
+
+        #footer {
+            border-top: solid 0.5px black;
+        }
+        .slideanim { visibility: hidden;}
+        .slidein {
+            /* The name of the animation */
+            animation-name: slidein;
+            -webkit-animation-name: slidein;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+            visibility: visible;
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .slideout {
+            /* The name of the animation */
+            animation-name: slideout;
+            -webkit-animation-name: slideout;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slideout {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        @-webkit-keyframes slideout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .btn1{
+            border-color: black;
+            background-color: dodgerblue;
+            color:white;
+            opacity: 0.9;
+        }
+
+        .btn1:hover{
+            color:white;
+            border-color: black;
+            background-color: dodgerblue;
+            opacity: 0.8;
+        }
+
+        .img{
+            background-image: -webkit-linear-gradient(left, lightgrey 0%, darkgray 20%, dimgray 50%, darkgray 80%, lightgrey 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-md-center collapse show">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('homepage') }}"><img class="img-fluid d-block px-auto mx-auto" style= "width: 45%;" src="{{ asset('build/static/logo-finished.png') }}"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="navbar sticky-top py-2 navbar-expand-md navbar-light bg-light" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample08">
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item w-25 slideanim" >
+                <img class="" style= "width: 22%;" src="{{ asset('build/static/logo.png') }}">
+            </li>
+
+            <li class="nav-item mx-3 my-auto ">
+                <a class="nav-link" href="{{ path('homepage') }}"> <strong>Начало</strong> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('about_us') }}"><strong>За нас</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('compareprices') }}"><strong>Сравняване на цени</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('first_step') }}"><strong>Компютърни конфигурации</strong></a>
+            </li>
+        </ul>
+
+
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto px-auto my-auto">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Добре дошли,{{ app.user.first }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ path('changepassword') }}">Редактиране на профил</a>
+                        <a class="dropdown-item" href="{{ path('myconfig') }}">Запазени конфигурации</a>
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">Изход</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto mr-3 px-auto my-auto">
+                <div class="btn-group-vertical  btn-group-sm mx-auto" role="group">
+                    <a  id="logbutton" class="btn btn-primary text-white" href="{{ path('app_login') }}">Вход</a>
+                    <a id="regbutton" class="btn btn-primary disabled text-white"href="{{ path('site_register') }}">Регистрация</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+
+
+<div class="container-fluid px-0">
+
+
+    <div class="bodyimg p-5">
+
+        <div class="container-fluid mt-5 p-5 inner">
+            <div class="row">
+                <div class="col-12 pt-2 text-center my-1">
+                    <h1 class="display-4 font-weight-normal"> Регистрация </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3 mx-auto px-auto">
+                    <div class="panel panel-primary">
+                    </div>
+                    <div class="panel-body">
+                        {{ form_start(registrationForm) }}
+
+                        <form name="myform">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Електронна поща:</label>
+                                {% set attremail={'class': 'form-control','type': 'email','data-validation':'required'} %}
+                                {{ form_row(registrationForm.Email,{'id': 'exampleInputEmail1', 'attr': attremail, 'label': ' ' }) }}
+                                <span id="error_email1" class="text-danger"></span>
+                                <span id="error_email2" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Парола:</label>
+                                <!-- <input type="password" class="form-control" id="exampleInputPassword1" data-validation="required"> -->
+                                {% set attrpassword={'class': 'form-control'} %}
+                                {{ form_row(registrationForm.Password,{'id': 'exampleInputPassword1', 'attr': attrpassword, 'label': ' ' }) }}
+                                <span id="error_password1" class="text-danger"></span>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label for="myName">Име:</label>
+                                {% set attrfirstname={'class': 'form-control'} %}
+                                <!--
+                                <input id="myName" name="myName" class="form-control" type="text" data-validation="required"> -->
+                                {{ form_row(registrationForm.first,{'id': 'myName', 'attr': attrfirstname, 'label': ' '}) }}
+                                <span id="error_name" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Фамилия:</label>
+                                {% set attrlastname={'class': 'form-control'} %}
+                                <!--
+                                <input id="lastname" name="lastname" class="form-control" type="text" data-validation="email">-->
+                                {{ form_row(registrationForm.last,{'id': 'lastname', 'attr': attrlastname, 'label': ' '}) }}
+                                <span id="error_lastname" class="text-danger"></span>
+                            </div>
+                            {{ form_row(registrationForm._token) }}
+                            <button id="submit" type="submit" value="submit" class="btn btn-primary center">Регистрирай
+                                се
+                            </button>
+
+                        </form>
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<footer class="container py-5 mt-3 " id="footer">
+    <div class="row ">
+        <div class="col-12 col-md ">
+            <img class="w-25" src="{{ asset('build/static/logo.png') }}">
+            <small class="d-block mb-3 text-muted ">© 2019</small>
+        </div>
+        <div class="col-6 col-md ">
+            <h5>Секции</h5>
+            <ul class="list-unstyled text-small ">
+                <li><a class="text-muted " href="{{ path('homepage') }}">Начало</a></li>
+                <li><a class="text-muted " href="{{ path('about_us') }}">За нас</a></li>
+                <li><a class="text-muted " href="{{ path('compareprices') }}">Сравняване на цени</a></li>
+                <li><a class="text-muted " href="{{ path('first_step') }}">Компютърни конфигурации</a></li>
+            </ul>
+        </div>
+
+        <div class="col-6 col-md ">
+            <h5>За връзка:</h5>
+            <ul class="list-unstyled text-small">
+                <li class="text-muted">dragomirvasilev23@gmail.com</li>
+                <li class="text-muted">ben669@abv.bg</li>
+            </ul>
+        </div>
+        <div class="col-6 mt-5 col-md">
+
+            <a href="#" id="scroll"><img class="logo1" src="{{ asset('build/static/arrowup.png') }}"></a>
+
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#scroll').click(function () {
+            $("html, body").animate({scrollTop: 0}, 600);
+            return false;
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
+        crossorigin="anonymous "></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
+        crossorigin="anonymous "></script>
+<script>
+    $(document).ready(function () {
+        $("#regbutton").css('', '')
+        $("#logbutton").attr('href', '#')
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $(function () {
+            if ($(this).scrollTop() > 200) {
+                $(".slideanim").addClass("slidein");
+            }
+            var fl=0;
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 150) {
+                    $(".slideanim").removeClass("slideout");
+                    $(".slideanim").addClass("slidein");
+                    fl=1;
+                }
+
+                if ($(this).scrollTop() < 150 && fl==1) {
+                    $(".slideanim").removeClass("slidein");
+                    $(".slideanim").addClass("slideout");
+                    fl=0;
+                }
+
+
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $flag = 1;
+
+        $("#exampleInputEmail1").focusout(function () {
+            if ($(this).val()== '') {
+                $(this).css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_email1").text("*Това поле трябва да бъде попълнено!");
+            }
+
+            else if (!/^[\w\d]+@[A-Za-z\d]+(\.[A-Za-z\d]+)+$/g.test($(this).val())) {
+                $(this).css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_email1").text("*Адресът не е валиден!");
+            }
+            else {
+                $(this).css("border-color", "#2eb82e");
+                $('#submit').attr('disabled', false);
+                $("#error_email1").text("");
+                $("#error_email2").text("");
+
+            }
+        });
+
+        $("#exampleInputPassword1").focusout(function () {
+            if ($(this).val() == '') {
+                $(this).css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_password1").text("*Това поле трябва да бъде попълнено!");
+            }
+            else if ($(this).val().length < 6) {
+                $(this).css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_password1").text("*Паролата трябва да бъде поне 6 символа!");
+            }
+
+            else if ($(this).val().indexOf(" ") > 0) {
+                $(this).css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_password1").text("*Паролата не трябва да съдържа интервали!");
+            }
+
+            else {
+                $(this).css("border-color", "#2eb82e");
+                $('#submit').attr('disabled', false);
+                $("#error_password1").text("");
+
+            }
+        });
+
+        $("#myName").focusout(function () {
+            if ($(this).val() == '') {
+                $(this).css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_name").text("*Това поле трябва да бъде попълнено!");
+            }
+            else {
+                $(this).css("border-color", "#2eb82e");
+                $('#submit').attr('disabled', false);
+                $("#error_name").text("");
+
+            }
+        });
+        $("#lastname").focusout(function () {
+            if ($(this).val() == '') {
+                $(this).css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_lastname").text("*Това поле трябва да бъде попълнено!");
+            }
+            else {
+                $(this).css("border-color", "#2eb82e");
+                $('#submit').attr('disabled', false);
+                $("#error_lastname").text("");
+            }
+        });
+
+
+        $("#submit").click(function () {
+            if ($("#exampleInputEmail1").val()=='') {
+                $("#exampleInputEmail1").css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_email1").text("*Това поле трябва да бъде попълнено!");
+            }
+
+     else if (!/^[\w\d]+@[A-Za-z\d]+(\.[A-Za-z\d]+)+$/g.test($("#exampleInputEmail1").val())) {
+                $("#exampleInputEmail1").css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_email1").text("*Адресът не е валиден!");
+            }
+            if ($("#exampleInputPassword1").val() == '') {
+                $("#exampleInputPassword1").css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_password1").text("*Това поле трябва да бъде попълнено!");
+            }
+            if ($("#exampleInputPassword1").val().length < 6) {
+                $("#exampleInputPassword1").css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_password2").text("*Паролата трябва да е поне 6 символа!");
+            }
+            if ($("#myName").val() == '') {
+                $("#myName").css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_name").text("*Това поле трябва да бъде попълнено!");
+            }
+            if ($("#lastname").val() == '') {
+                $("#lastname").css("border-color", "#FF0000");
+                $('#submit').attr('disabled', true);
+                $("#error_lastname").text("*Това поле трябва да бъде попълнено!");
+            }
+        });
+    });
+
+</script>
+</body>
+
+</html>

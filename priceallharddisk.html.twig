@@ -1,0 +1,413 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('build/static/logo.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap-theme.min.css">
+    <link href="product.css" rel="stylesheet">
+    <link rel='stylesheet' href='bower_components/glyphicons-only-bootstrap/css/bootstrap.min.css' />
+    <style>
+        body {
+            background-color: #efefef;
+
+        }
+
+        .nav-text {
+            color: darkgray;
+
+        }
+
+        .nav-text:hover {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .navtext {
+            size: 5;
+        }
+
+        #navbar {
+
+            border-bottom: 0.1px solid gray;
+        }
+
+        #footer {
+            border-top: solid 0.5px gray;
+        }
+
+        .active1 {
+            background-color: darkgray;
+        }
+
+        .active1:hover {
+            background-color: gray;
+        }
+
+        .active1:click {
+            background-color: none;
+        }
+
+        .active2:hover {
+            background-color: gray;
+        }
+
+
+        #arrow1,
+        #arrow2,
+        #btn2 {
+            position: absolute;
+        }
+
+        .btnlabel {
+            color: black;
+            text-decoration: none;
+        }
+
+        .btnlabel:hover {
+            color: dimgray;
+            text-decoration: none;
+        }
+
+        .inactive {
+            pointer-events: none;
+            color: gray;
+        }
+
+        .type,
+        .brand,
+        .model {
+            color: black;
+        }
+
+        .type:hover,
+        .brand:hover,
+        .model:hover {
+            color: black;
+            text-decoration-color: black;
+        }
+
+
+
+
+        .selected {
+            color: black;
+            font-weight: bold;
+        }
+
+        .modelcontainer {
+            background-color: gainsboro;
+            border-radius: 10px;
+            border: 1px solid dimgray;
+            box-shadow: 2px 2px 2px black;
+        }
+
+        .typecontainer {
+            background-color: gainsboro;
+            border-radius: 10px;
+            border: 1px solid dimgray;
+            box-shadow: 2px 2px 2px black;
+        }
+
+        .bodyimg {
+            background-image: url("{{ asset('build/static/body.jpg') }}");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .logo1 {
+            width: 35%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .inner {
+            background-color: #eaeaea;
+            border-radius: 15px;
+            box-shadow: 4px 4px 4px 5px;
+        }
+
+        .slideanim { visibility: hidden;}
+        .slidein {
+            /* The name of the animation */
+            animation-name: slidein;
+            -webkit-animation-name: slidein;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+            visibility: visible;
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .slideout {
+            /* The name of the animation */
+            animation-name: slideout;
+            -webkit-animation-name: slideout;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slideout {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        @-webkit-keyframes slideout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .btn1{
+            border-color: black;
+            background-color: dodgerblue;
+            color:white;
+            opacity: 0.9;
+        }
+
+        .btn1:hover{
+            color:white;
+            border-color: black;
+            background-color: dodgerblue;
+            opacity: 0.8;
+        }
+
+        .img{
+            background-image: -webkit-linear-gradient(left, lightgrey 0%, darkgray 20%, dimgray 50%, darkgray 80%, lightgrey 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-md-center collapse show">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('homepage') }}"><img class="img-fluid d-block px-auto mx-auto" style= "width: 45%;" src="{{ asset('build/static/logo-finished.png') }}"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="navbar sticky-top py-2 navbar-expand-md navbar-light bg-light" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample08">
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item w-25 slideanim" >
+                <img class="" style= "width: 22%;" src="{{ asset('build/static/logo.png') }}">
+            </li>
+
+            <li class="nav-item mx-3 my-auto ">
+                <a class="nav-link" href="{{ path('homepage') }}"> <strong>Начало</strong> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item  mx-3 my-auto">
+                <a class="nav-link" href="{{ path('about_us') }}"><strong>За нас</strong></a>
+            </li>
+
+            <li class="nav-item active mx-3 my-auto">
+                <a class="nav-link" href="{{ path('compareprices') }}"><strong>Сравняване на цени</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('first_step') }}"><strong>Компютърни конфигурации</strong></a>
+            </li>
+        </ul>
+
+
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto px-auto my-auto">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Добре дошли,{{ app.user.first }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ path('changepassword') }}">Редактиране на профил</a>
+                        <a class="dropdown-item" href="{{ path('myconfig') }}">Запазени конфигурации</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" href="{{ path('admin_panel') }}">Администраторски панел</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">Изход</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto mr-3 px-auto my-auto">
+                <div class="btn-group-vertical  btn-group-sm mx-auto" role="group">
+                    <a  id="logbutton" class="btn btn-primary text-white" href="{{ path('app_login') }}">Вход</a>
+                    <a id="regbutton" class="btn btn-primary text-white"href="{{ path('site_register') }}">Регистрация</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+<div class="container-fluid px-0">
+
+
+    <div class="bodyimg p-5">
+
+        <div class="container mt-5 pt-5 inner">
+            <div class="row">
+                <div class="col-12 pt-2 text-center my-1">
+                    <h1 class="display-4 font-weight-normal">Сравняване на цени</h1>
+                    <p class="lead font-weight-normal">Тук можете да сравните цените на компютърни компоненти в 4-те най-големи сайта в България.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row pb-4">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="typecontainer p-2 m-4 col-sm-2">
+
+                            <h5> 1. Вид </h5>
+                            <ul class="list-unstyled text-small">
+                                <li><a class="inactive" href="javascript:void(0);"> Дънна платка</a></li>
+                                <li><a class="inactive" href="javascript:void(0);"> Процесор </a></li>
+                                <li><a class="inactive" href="javascript:void(0);"> Видео карта </a></li>
+                                <li><a class="inactive" href="javascript:void(0);"> RAM Памет </a></li>
+                                <li><a class="inactive selected" href="javascript:void(0);"> Твърд Диск </a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="col-sm-2 mt-5">
+                                <button class="btn" id="btn2">
+                                    <a class="btnlabel" href="{{ path('compareprices') }}">Назад</a>
+                                </button>
+                            <br><br>
+                                 <img class='w-25 img-fluid' src="{{ asset('build/static/arrow.png') }}">
+                             </div>
+
+                        <div class="modelcontainer p-2 m-2 ml-0 col-sm-5">
+                            <h5> 2. Модел </h5>
+                            <ul class="list-unstyled text-small">
+                                {% for hard in hards %}
+                                <li>
+                                    <a class="model" href="{{ path('hard_show', {'id': hard.id} ) }}">
+                                    {{ hard.Name }}
+                                </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container py-5 mt-3 " id="footer">
+        <div class="row ">
+            <div class="col-12 col-md ">
+                <img class="w-25" src="{{ asset('build/static/logo.png') }}">
+                <small class="d-block mb-3 text-muted ">© 2019</small>
+            </div>
+            <div class="col-6 col-md ">
+                <h5>Секции</h5>
+                <ul class="list-unstyled text-small ">
+                    <li><a class="text-muted " href="{{ path('homepage') }}">Начало</a></li>
+                    <li><a class="text-muted " href="{{ path('about_us') }}">За нас</a></li>
+                    <li><a class="text-muted " href="{{ path('compareprices') }}">Сравняване на цени</a></li>
+                    <li><a class="text-muted " href="{{ path('first_step') }}">Компютърни конфигурации</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-6 col-md ">
+                <h5>За връзка:</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="text-muted">dragomirvasilev23@gmail.com</li>
+                    <li class="text-muted">ben669@abv.bg</li>
+                </ul>
+            </div>
+            <div class="col-6 mt-5 col-md">
+
+                <a href="#" id="scroll"><img class="logo1" src="{{ asset('build/static/arrowup.png') }}"></a>
+
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#scroll').click(function () {
+                $("html, body").animate({scrollTop: 0}, 600);
+                return false;
+            });
+        });
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $(function () {
+                if ($(this).scrollTop() > 200) {
+                    $(".slideanim").addClass("slidein");
+                }
+                var fl=0;
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 150) {
+                        $(".slideanim").removeClass("slideout");
+                        $(".slideanim").addClass("slidein");
+                        fl=1;
+                    }
+
+                    if ($(this).scrollTop() < 150 && fl==1) {
+                        $(".slideanim").removeClass("slidein");
+                        $(".slideanim").addClass("slideout");
+                        fl=0;
+                    }
+
+
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,368 @@
+{% if config2 is empty %}
+{% else %}
+    <div class="row tablecontainer py-4 mt-5">
+
+        <div class="col-sm-10">
+            <h3 class="display-5 config2">Конфигурация 2:</h3>
+            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                <tr>
+                    <th class="th2"> Процесор:</th>
+                    <td class="td2 hardtext processorche2">{{ config2[0] }}</td>
+                </tr>
+                <tr>
+                    <th class="th2"> Дънна платка:</th>
+                    <td class="td2 hardtext dunnce2">{{ config2[1] }}</td>
+                </tr>
+                <tr>
+                    <th class="th2"> RAM памет:</th>
+                    <td class="td2 hardtext ramche2">{{ config2[2] }}</td>
+                </tr>
+                <tr>
+                    <th class="th2"> Твърд диск:</th>
+                    <td class="td2 hardtext hardche2">{{ config2[3] }}</td>
+                </tr>
+                <tr>
+                    <th class="th2"> Видео карта:</th>
+                    <td class="td2 hardtext GPU2">{{ config2[4] }}</td>
+                </tr>
+                <tr>
+                    <th class="th2"> Захранване:</th>
+                    <td class="td2 hardtext powerche2">{{ config2[5] }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-2 my-auto py-auto">
+
+
+            <div class="my-2">
+                <button class="btn btn-primary butonche2"> Сметни цена</button>
+            </div>
+
+            <a href="">
+                <div class="my-2">
+                    <button class="btn btn-danger butona2"> Изтрий</button>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="row tablecontainer py-4 mt-5">
+        <div class="col-sm-10">
+            <h3 class="display-5 config5">Най-евтини цени:</h3>
+
+
+            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                <tr>
+                    <th class="th2">{{ config2[0] }}</th>
+                    <td class="td2 hardtext" id="processorSite2"></td>
+                    <td class="td2 hardtext" id="processorPrice2"></td>
+                </tr>
+                <tr>
+                    <th class="th2">{{ config2[1] }}</th>
+                    <td class="td2 hardtext" id="motherboardSite2"></td>
+                    <td class="td2 hardtext" id="motherboardPrice2"></td>
+                </tr>
+                <tr>
+                    <th class="th2">{{ config2[2] }}</th>
+                    <td class="td2 hardtext" id="ramSite2"></td>
+                    <td class="td2 hardtext" id="ramPrice2"></td>
+                </tr>
+                <tr>
+                    <th class="th2">{{ config2[3] }}</th>
+                    <td class="td2 hardtext" id="hardSite2"></td>
+                    <td class="td2 hardtext" id="hardPrice2"></td>
+                </tr>
+                <tr>
+                    <th class="th2">{{ config2[4] }}</th>
+                    <td class="td2 hardtext" id="videocardSite2"></td>
+                    <td class="td2 hardtext" id="videocardPrice2"></td>
+                </tr>
+                <tr>
+                    <th class="th2">{{ config2[5] }}</th>
+                    <td class="td2 hardtext" id="powerSite2"></td>
+                    <td class="td2 hardtext" id="powerPrice2"></td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+{% endif %}
+
+                {% if config3 is empty %}
+                {% else %}
+                    <div class="row tablecontainer py-4 mt-5">
+
+                        <div class="col-sm-10">
+                            <h3 class="display-5 config3">Конфигурация 3:</h3>
+                            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                <tr>
+                                    <th class="th2"> Процесор:</th>
+                                    <td class="td2 hardtext processorche3">{{ config3[0] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Дънна платка:</th>
+                                    <td class="td2 hardtext dunnce3">{{ config3[1] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> RAM памет:</th>
+                                    <td class="td2 hardtext ramche3">{{ config3[2] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Твърд диск:</th>
+                                    <td class="td2 hardtext hardche3">{{ config3[3] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Видео карта:</th>
+                                    <td class="td2 hardtext GPU3">{{ config3[4] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Захранване:</th>
+                                    <td class="td2 hardtext powerche3">{{ config3[5] }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-2 my-auto py-auto">
+
+
+                            <div class="my-2">
+                                <button class="btn btn-primary butonche3"> Сметни цена</button>
+                            </div>
+
+                            <a href="">
+                                <div class="my-2">
+                                    <button class="btn btn-danger butona3"> Изтрий</button>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="row tablecontainer py-4 mt-5">
+                        <div class="col-sm-10">
+                            <h3 class="display-5 config5">Най-евтини цени:</h3>
+
+
+                            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                <tr>
+                                    <th class="th2">{{ config3[0] }}</th>
+                                    <td class="td2 hardtext" id="processorSite3"></td>
+                                    <td class="td2 hardtext" id="processorPrice3"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config3[1] }}</th>
+                                    <td class="td2 hardtext" id="motherboardSite3"></td>
+                                    <td class="td2 hardtext" id="motherboardPrice3"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config3[2] }}</th>
+                                    <td class="td2 hardtext" id="ramSite3"></td>
+                                    <td class="td2 hardtext" id="ramPrice3"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config3[3] }}</th>
+                                    <td class="td2 hardtext" id="hardSite3"></td>
+                                    <td class="td2 hardtext" id="hardPrice3"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config3[4] }}</th>
+                                    <td class="td2 hardtext" id="videocardSite3"></td>
+                                    <td class="td2 hardtext" id="videocardPrice3"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config3[5] }}</th>
+                                    <td class="td2 hardtext" id="powerSite3"></td>
+                                    <td class="td2 hardtext" id="powerPrice3"></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if config4 is empty %}
+                {% else %}
+                    <div class="row tablecontainer py-4 mt-5">
+                        <div class="col-sm-10">
+                            <h3 class="display-5 config4">Конфигурация 4:</h3>
+
+
+                            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                <tr>
+                                    <th class="th2"> Процесор:</th>
+                                    <td class="td2 hardtext processorche4">{{ config4[0] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Дънна платка:</th>
+                                    <td class="td2 hardtext dunnce4">{{ config4[1] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> RAM памет:</th>
+                                    <td class="td2 hardtext ramche4">{{ config4[2] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Твърд диск:</th>
+                                    <td class="td2 hardtext hardche4">{{ config4[3] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Видео карта:</th>
+                                    <td class="td2 hardtext GPU4">{{ config4[4] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Захранване:</th>
+                                    <td class="td2 hardtext powerche4">{{ config4[5] }}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="col-2 my-auto py-auto">
+
+
+                            <div class="my-2">
+                                <button class="btn btn-primary butonche4"> Сметни цена</button>
+                            </div>
+
+                            <a href="">
+                                <div class="my-2">
+                                    <button class="btn btn-danger butona4"> Изтрий</button>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="row tablecontainer py-4 mt-5">
+                        <div class="col-sm-10">
+                            <h3 class="display-5 config5">Най-евтини цени:</h3>
+
+
+                            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                <tr>
+                                    <th class="th2">{{ config4[0] }}</th>
+                                    <td class="td2 hardtext" id="processorSite4"></td>
+                                    <td class="td2 hardtext" id="processorPrice4"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config4[1] }}</th>
+                                    <td class="td2 hardtext" id="motherboardSite4"></td>
+                                    <td class="td2 hardtext" id="motherboardPrice4"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config4[2] }}</th>
+                                    <td class="td2 hardtext" id="ramSite4"></td>
+                                    <td class="td2 hardtext" id="ramPrice4"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config4[3] }}</th>
+                                    <td class="td2 hardtext" id="hardSite4"></td>
+                                    <td class="td2 hardtext" id="hardPrice4"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config4[4] }}</th>
+                                    <td class="td2 hardtext" id="videocardSite4"></td>
+                                    <td class="td2 hardtext" id="videocardPrice4"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config4[5] }}</th>
+                                    <td class="td2 hardtext" id="powerSite4"></td>
+                                    <td class="td2 hardtext" id="powerPrice4"></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if config5 is empty %}
+                {% else %}
+                    <div class="row tablecontainer py-4 mt-5">
+                        <div class="col-sm-10">
+                            <h3 class="display-5 config5">Конфигурация 5:</h3>
+
+
+                            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                <tr>
+                                    <th class="th2"> Процесор:</th>
+                                    <td class="td2 hardtext">{{ config5[0] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Дънна платка:</th>
+                                    <td class="td2 hardtext">{{ config5[1] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> RAM памет:</th>
+                                    <td class="td2 hardtext">{{ config5[2] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Твърд диск:</th>
+                                    <td class="td2 hardtext">{{ config5[3] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Видео карта:</th>
+                                    <td class="td2 hardtext">{{ config5[4] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="th2"> Захранване:</th>
+                                    <td class="td2 hardtext">{{ config5[5] }}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="col-2 my-auto py-auto">
+
+
+                            <div class="my-2">
+                                <button class="btn btn-primary butonche5"> Сметни цена</button>
+                            </div>
+
+                            <a href="">
+                                <div class="my-2">
+                                    <button class="btn btn-danger butona5"> Изтрий</button>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="row tablecontainer py-4 mt-5">
+                        <div class="col-sm-10">
+                            <h3 class="display-5 config5">Най-евтини цени:</h3>
+
+
+                            <table class="w-100 my-3" style="box-shadow: 3px 3px 4px black;">
+                                <tr>
+                                    <th class="th2">{{ config5[0] }}</th>
+                                    <td class="td2 hardtext" id="processorSite5"></td>
+                                    <td class="td2 hardtext" id="processorPrice5"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config5[1] }}</th>
+                                    <td class="td2 hardtext" id="motherboardSite5"></td>
+                                    <td class="td2 hardtext" id="motherboardPrice5"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config5[2] }}</th>
+                                    <td class="td2 hardtext" id="ramSite5"></td>
+                                    <td class="td2 hardtext" id="ramPrice5"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config5[3] }}</th>
+                                    <td class="td2 hardtext" id="hardSite5"></td>
+                                    <td class="td2 hardtext" id="hardPrice5"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config5[4] }}</th>
+                                    <td class="td2 hardtext" id="videocardSite5"></td>
+                                    <td class="td2 hardtext" id="videocardPrice5"></td>
+                                </tr>
+                                <tr>
+                                    <th class="th2">{{ config5[5] }}</th>
+                                    <td class="td2 hardtext" id="powerSite5"></td>
+                                    <td class="td2 hardtext" id="powerPrice5"></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                {% endif %}

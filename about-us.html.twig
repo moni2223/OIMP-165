@@ -1,0 +1,407 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('build/static/logo.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap-theme.min.css">
+    <link href="product.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #efefef;
+
+        }
+
+        .nav-text {
+            color: darkgray;
+
+        }
+
+        .nav-text:hover {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .navtext {
+            size: 5;
+        }
+
+        #navbar {
+
+            border-bottom: 0.1px solid gray;
+        }
+
+        .active1:hover {
+            background-color: gray;
+        }
+
+        .active1:click {
+            background-color: none;
+        }
+
+        #footer {
+            border-top: solid 0.5px gray;
+        }
+
+        .bodyimg {
+            background-image: url("{{ asset('build/static/body.jpg') }}");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .logo1 {
+            width: 35%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .inner {
+            background-color: #eaeaea;
+            border-radius: 5%;
+            box-shadow: 4px 4px 4px 5px;
+        }
+
+        .slideanim { visibility: hidden;}
+        .slidein {
+            /* The name of the animation */
+            animation-name: slidein;
+            -webkit-animation-name: slidein;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+            visibility: visible;
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .slideout {
+            /* The name of the animation */
+            animation-name: slideout;
+            -webkit-animation-name: slideout;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slideout {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        @-webkit-keyframes slideout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .btn1{
+            border-color: black;
+            background-color: dodgerblue;
+            color:white;
+            opacity: 0.9;
+        }
+
+        .btn1:hover{
+            color:white;
+            border-color: black;
+            background-color: dodgerblue;
+            opacity: 0.8;
+        }
+
+        .img{
+            background-image: -webkit-linear-gradient(left, lightgrey 0%, darkgray 20%, dimgray 50%, darkgray 80%, lightgrey 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-md-center collapse show">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('homepage') }}"><img class="img-fluid d-block px-auto mx-auto" style= "width: 45%;" src="{{ asset('build/static/logo-finished.png') }}"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="navbar sticky-top py-2 navbar-expand-md navbar-light bg-light" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample08">
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item w-25 slideanim" >
+                <img class="" style= "width: 22%;" src="{{ asset('build/static/logo.png') }}">
+            </li>
+
+            <li class="nav-item mx-3 my-auto ">
+                <a class="nav-link" href="{{ path('homepage') }}"> <strong>Начало</strong> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active mx-3 my-auto">
+                <a class="nav-link" href="{{ path('about_us') }}"><strong>За нас</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('compareprices') }}"><strong>Сравняване на цени</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('first_step') }}"><strong>Компютърни конфигурации</strong></a>
+            </li>
+        </ul>
+
+
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto px-auto my-auto">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Добре дошли,{{ app.user.first }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ path('changepassword') }}">Редактиране на профил</a>
+                        <a class="dropdown-item" href="{{ path('myconfig') }}">Запазени конфигурации</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" href="{{ path('admin_panel') }}">Администраторски панел</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">Изход</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto mr-3 px-auto my-auto">
+                <div class="btn-group-vertical  btn-group-sm mx-auto" role="group">
+                    <a  id="logbutton" class="btn btn-primary text-white" href="{{ path('app_login') }}">Вход</a>
+                    <a id="regbutton" class="btn btn-primary text-white"href="{{ path('site_register') }}">Регистрация</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+<div class="bodyimg p-5">
+    <div class="container inner py-5">
+        <div class="col-12 px-5">
+            <h1 class="display-5 font-weight-normal">За нас</h1>
+            <p class="lead font-weight-normal"> CompDirect е тепърва навлизащ в България уебсайт за сравняване на цени на компютърни компоненти и създаване на компютърни конфигурации. Целта на екипа ни е да подпомогнем максимално избора на потребителя, когато той избира частите за компютъра си. CompDirect НЕ продава компютърни части, а е пътеводител за един купувач. </p>
+            <p class="lead font-weight-normal"><strong> - Какво предлага CompDirect?</strong> </p>
+            <p class="lead font-weight-normal"> - Функциите на CompDirect са две: </p>
+            <p class="lead font-weight-normal">
+                1. "Сравняване на цени" - в България има изобилие от онлайн магазини за компютърни компоненти - съответно цените им се различават. Нашият екип представя на вашето внимание 4-те най-големи сайта в България - Jarcomputers, Ardes, Desktop и Еmag. С 3 клика, вие можете да изберете търсения от вас компонент и CompDirect ще предостави цените му в тези 4 сайта, заедно с най-важните му характеристики. С други думи, ще намерите най-изгодната цена за секунди.
+            </p>
+            <p class="lead font-weight-normal">
+                2. "Koмпютърни конфигурации" - за да си сглобите компютър, вие трябва да сте наясно с характеристиките на всички негови части и дали те са съвместими една с друга. Не всеки компонент е съвместим с друг! Също така, производителите предлагат както мощни и скъпи компоненти за професионална употреба и видео игри, така и по-бюджетни части за " любители". CompDirect премахва нуждата да се информирате за различните съвместимости и класове на частите, като ви предлага да ги изберете от този раздел. Минавайки през 3-те стъпки, CompDirect ще ви предложи най-подходящата конфигурация за Вас.
+            </p>
+
+            <p class="lead font-weight-normal"><strong>Имате въпроси? Изпратете ни съобщение:</strong>    </p>
+
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Електронна поща:</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <span id="error_email1" class="text-danger"></span>
+                    <span id="error_email2" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <div id="cct_embed_counts">
+                        <label for="exampl  eFormControlTextarea1">Съобщение: </label>
+                        <textarea id="cct_embed_input_text" class="textarea form-control" maxlength="255" rows="4"></textarea>
+                        <span id="error_text" class="text-danger"></span>
+                        <p><strong> *Максимум 255 символа </strong></p>
+                        <div id="cct_embed_result"></div>
+                        <div id="cct_powered_by"></div>
+                        <script type="text/javascript" src="https://charactercounttool.com/cct_embed.min.js"></script>
+                    </div>
+
+                    <input type="hidden" class="form-control" id="exampleFormControlTextarea1">
+
+                </div>
+
+                <button type="submit" id="submit" class="btn buton btn-primary" disabled>Изпрати</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+<footer class="container py-5 mt-3 " id="footer">
+    <div class="row ">
+        <div class="col-12 col-md ">
+            <img class="w-25" src="{{ asset('build/static/logo.png') }}">
+            <small class="d-block mb-3 text-muted ">© 2019</small>
+        </div>
+        <div class="col-6 col-md ">
+            <h5>Секции</h5>
+            <ul class="list-unstyled text-small ">
+                <li><a class="text-muted " href="{{ path('homepage') }}">Начало</a></li>
+                <li><a class="text-muted " href="{{ path('about_us') }}">За нас</a></li>
+                <li><a class="text-muted " href="{{ path('compareprices') }}">Сравняване на цени</a></li>
+                <li><a class="text-muted " href="{{ path('first_step') }}">Компютърни конфигурации</a></li>
+
+            </ul>
+        </div>
+
+        <div class="col-6 col-md ">
+            <h5>За връзка:</h5>
+            <ul class="list-unstyled text-small">
+                <li class="text-muted">dragomirvasilev23@gmail.com</li>
+                <li class="text-muted">ben669@abv.bg</li>
+            </ul>
+        </div>
+        <div class="col-6 mt-5 col-md">
+
+            <a href="#" id="scroll"><img class="logo1" src="{{ asset('build/static/arrowup.png') }}"></a>
+
+        </div>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#scroll').click(function () {
+            $("html, body").animate({scrollTop: 0}, 600);
+            return false;
+        });
+    });
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://charactercounttool.com/cct_embed.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(function () {
+            if ($(this).scrollTop() > 200) {
+                $(".slideanim").addClass("slidein");
+            }
+            var fl=0;
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 150) {
+                    $(".slideanim").removeClass("slideout");
+                    $(".slideanim").addClass("slidein");
+                    fl = 1;
+                }
+
+                if ($(this).scrollTop() < 150 && fl == 1) {
+                    $(".slideanim").removeClass("slidein");
+                    $(".slideanim").addClass("slideout");
+                    fl = 0;
+                }
+            });
+                $("#exampleInputEmail1").focusout(function () {
+                    if ($(this).val() == '') {
+                        $(this).css("border-color", "#FF0000");
+                        $('#submit').attr('disabled', true);
+                        $("#error_email1").text("*Това поле трябва да бъде попълнено!");
+                    }
+                    else if (!/^[\w\d]+@[A-Za-z\d]+(\.[A-Za-z\d]+)+$/g.test($(this).val())) {
+                        $(this).css("border-color", "#FF0000");
+                        $('#submit').attr('disabled', true);
+                        $("#error_email1").text("*Адресът не е валиден!");
+                    }
+                    else {
+                        $(this).css("border-color", "#2eb82e");
+                        $('#submit').attr('disabled', false);
+                        $("#error_email1").text("");
+                        $("#error_email2").text("");
+
+                    }
+                });
+
+            $("#submit").click(function () {
+                if ($("#exampleInputEmail1").val() == '') {
+                    $("#exampleInputEmail1").css("border-color", "#FF0000");
+                    $('#submit').attr('disabled', true);
+                    $("#error_email1").text("*Това поле трябва да бъде попълнено!");
+                }
+
+                else if (!/^[\w\d]+@[A-Za-z\d]+(\.[A-Za-z\d]+)+$/g.test($("#exampleInputEmail1").val())) {
+                    $("#exampleInputEmail1").css("border-color", "#FF0000");
+                    $('#submit').attr('disabled', true);
+                    $("#error_email1").text("*Адресът не е валиден!");
+                }
+            });
+            });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(".buton").click(function () {
+            var text1 = $(".textarea").val();
+            var text =  $("#exampleFormControlTextarea1").val() ;
+            text += text1;
+            $.ajax({
+                url: '{{ path('take') }}',
+                type: 'POST',
+                data: {
+                    email: $("#exampleInputEmail1").val(),
+                    text: text
+
+                },
+
+                success: function (data) {
+                    console.log(data);
+                    //location.reload();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+
+            });
+
+
+        })
+    });
+</script>
+<script>
+
+</script>
+</body>
+
+</html>

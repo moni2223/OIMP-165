@@ -1,0 +1,445 @@
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('build/static/logo.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap-theme.min.css">
+
+    <style>
+        body
+        {
+            background-color:#eaeaea;
+        }
+        .nav-text {
+
+            color: #2394D5;
+        }
+
+        .nav-text:hover {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .navtext {
+
+            size: 5;
+        }
+
+        #navbar {
+
+            border-bottom: 0.1px solid gray;
+        }
+
+        #footer {
+            border-top: solid 0.5px black;
+        }
+
+
+        .buttontxt {
+            color: black;
+            text-decoration-line: none;
+        }
+
+        .buttontxt:hover {
+            color: dimgray;
+            text-decoration-line: none;
+        }
+
+
+        .carousel-item {
+            border: 1px solid black;
+        }
+
+        .h {
+            height: 60%
+        }
+
+        .logbtn {
+            color: white;
+        }
+        .logbtn:hover{
+            text-decoration:none;
+            color: #eaeaea;
+        }
+
+        .jumbotron{
+            border-radius: 0%;
+        }
+
+        .line{
+            border-bottom: 1px solid dimgray;
+        }
+        body,
+        html {}
+
+        .bodyimg {
+            background-image: url("{{ asset('build/static/body.jpg') }}");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .logo1 {
+            width: 18%;
+        }
+
+        .inner {
+            background-color: #eaeaea;
+            border-radius: 5%;
+        }
+.card{
+    background-color:white;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+        .card:hover{
+            box-shadow: 1.3px 1.3px 1.3px 1.3px black;
+        }
+        .slideanim { visibility: hidden;}
+        .slidein {
+            /* The name of the animation */
+            animation-name: slidein;
+            -webkit-animation-name: slidein;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+            visibility: visible;
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes slidein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .slideout {
+            /* The name of the animation */
+            animation-name: slideout;
+            -webkit-animation-name: slideout;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+        @keyframes slideout {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        @-webkit-keyframes slideout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .btn1{
+            border-color: black;
+            background-color: dodgerblue;
+            color:white;
+            opacity: 0.9;
+        }
+
+        .btn1:hover{
+            color:white;
+            border-color: black;
+            background-color: dodgerblue;
+            opacity: 0.8;
+        }
+
+        .img{
+            background-image: -webkit-linear-gradient(left, lightgrey 0%, darkgray 20%, dimgray 50%, darkgray 80%, lightgrey 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-md-center collapse show">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('homepage') }}"><img class="img-fluid d-block px-auto mx-auto" style= "width: 45%;" src="{{ asset('build/static/logo-finished.png') }}"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="navbar sticky-top py-2 navbar-expand-md navbar-light bg-light" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample08">
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item w-25 slideanim" >
+                <img class="" style= "width: 22%;" src="{{ asset('build/static/logo.png') }}">
+            </li>
+
+            <li class="nav-item mx-3 active my-auto ">
+                <a class="nav-link" href="{{ path('homepage') }}"> <strong>Начало</strong> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('about_us') }}"><strong>За нас</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('compareprices') }}"><strong>Сравняване на цени</strong></a>
+            </li>
+
+            <li class="nav-item mx-3 my-auto">
+                <a class="nav-link" href="{{ path('first_step') }}"><strong>Компютърни конфигурации</strong></a>
+            </li>
+        </ul>
+
+
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto px-auto my-auto">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Добре дошли,{{ app.user.first }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ path('changepassword') }}">Редактиране на профил</a>
+                        <a class="dropdown-item" href="{{ path('myconfig') }}">Запазени конфигурации</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" href="{{ path('admin_panel') }}">Администраторски панел</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">Изход</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED" ) %}
+            <div class="nav-item mx-auto mr-3 px-auto my-auto">
+                <div class="btn-group-vertical  btn-group-sm mx-auto" role="group">
+                    <a  id="logbutton" class="btn btn-primary text-white" href="{{ path('app_login') }}">Вход</a>
+                    <a id="regbutton" class="btn btn-primary text-white"href="{{ path('site_register') }}">Регистрация</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+<div class="container-fluid px-0">
+
+
+    <div class="bodyimg p-5">
+
+        <div class="container-fluid mt-5 p-5 inner">
+            <div class="jumbotron line pt-1">
+                <div class="container-fluid">
+                    <h1 class="display-3">Добре дошли!</h1>
+                    <p style="font-size:larger;">Запознайте се с функциите и предимствата на CompDirect и разберете защо сайтът може да стане вашия ежедневен помощник!</p>
+                    <p><a class="btn btn-primary btn-lg"  href="{{ path('about_us') }}" role="button">Научете повече »</a></p>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-3">
+                <h1 class="display-5 font-weight-normal headline mb-3">Новини</h1>
+                <div class="row line">
+                    <div class="col-md-6">
+                        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <strong class="d-inline-block mb-2 text-primary">{{ author }}</strong>
+                                <h3 class="mb-0">
+                                    <a class="text-dark" href="#">{{ title }}</a>
+                                </h3>
+                                <div class="mb-1 text-muted">{{ date }}</div>
+                                <p class="card-text mb-auto">{{ summary }}</p>
+                                <a href="{{ path('news_show', {'id': news.id} ) }}">Прочети</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <strong class="d-inline-block mb-2 text-primary">{{ author2 }}</strong>
+                                <h3 class="mb-0">
+                                    <a class="text-dark" href="#">{{ title2 }}</a>
+                                </h3>
+                                <div class="mb-1 text-muted">{{ date2 }}</div>
+                                <p class="card-text mb-auto">{{ summary2 }}</p>
+                                <a href="{{ path('news_show', {'id': news2.id} ) }}">Прочети</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container-fluid pt-3">
+                <h1 class="display-5 font-weight-normal headline mb-3">Най-предпочитани</h1>
+            </div>
+
+            <div class="container-fluid">
+            <div class="row line pb-5" >
+                <div class="col-sm-2 card  m-2 pb-2 pt-3">
+                    <div class="container-fluid">
+                            <strong class="d-inline-block mb-2 text-primary ">AMD</strong>
+                            <h5 class="mb-0 ">{{ processor.name }}</h5>
+                            <img class="w-100 py-1" src="{{ processor.image }}">
+                            <a href="{{ path('processor3') }}" class="stretched-link ">Провери цената</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 card m-2  pb-2 pt-3">
+                    <div class="container-fluid">
+                            <strong class="d-inline-block mb-2 text-primary ">AMD</strong>
+                            <h5 class="mb-0 ">{{ videocard.name }}</h5>
+                            <img class="w-100 py-1" src="{{ videocard.imageurl }}">
+                            <a href="{{ path('videocard1') }}" class="stretched-link ">Провери цената</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 card m-2 pb-2 pt-3">
+                    <div class="container-fluid">
+                            <strong class="d-inline-block mb-2 text-primary ">AMD</strong>
+                            <h5 class="mb-0 ">{{ motherboard.name }}</h5>
+                            <img class="w-100 h-25" src="{{ motherboard.urlimage }}">
+                            <a href="{{ path('motherboard1') }}" class="stretched-link ">Провери цената</a>
+                    </div>
+                </div>
+                <div class="col-sm-2 card  m-2 pb-2 pt-3">
+                    <div class="container-fluid">
+                                <strong class="d-inline-block mb-2 text-primary ">Team Group T-FORCE</strong>
+                                <h5 class="mb-0 ">{{ ram.name }}</h5>
+                                <img class="w-100 " src="{{ ram.image }}">
+                                <a href="{{ path('ram_show1') }}" class="stretched-link ">Провери цената</a>
+                        </div>
+                </div>
+                <div class="col-sm-2 card  m-2 pb-2 pt-3">
+                    <div class="container-fluid">
+                        <strong class="d-inline-block mb-2 text-primary ">Western Digital</strong>
+                        <h5 class="mb-0 ">{{ hard.name }}</h5>
+                        <img class="w-100 " src="{{ hard.image }}">
+                        <a href="{{ path('hard_show1') }}" class="stretched-link ">Провери цената</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+    <footer class="container py-5 mt-3 " id="footer">
+        <div class="row ">
+            <div class="col-12 col-md ">
+                <img class="w-25" src="{{ asset('build/static/logo.png') }}">
+                <small class="d-block mb-3 text-muted ">© 2019</small>
+            </div>
+            <div class="col-6 col-md ">
+                <h5>Секции</h5>
+                <ul class="list-unstyled text-small ">
+                    <li><a class="text-muted " href="{{ path('homepage') }}">Начало</a></li>
+                    <li><a class="text-muted " href="{{ path('about_us') }}">За нас</a></li>
+                    <li><a class="text-muted " href="{{ path('compareprices') }}">Сравняване на цени</a></li>
+                    <li><a class="text-muted " href="{{ path('first_step') }}">Компютърни конфигурации</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md ">
+                <h5>За връзка:</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="text-muted">dragomirvasilev23@gmail.com</li>
+                    <li class="text-muted">ben669@abv.bg</li>
+                </ul>
+            </div>
+            <div class="col-6 mt-5 col-md">
+                <a href="#" id="scroll"><img class="logo1" src="{{ asset('build/static/arrowup.png') }}"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#scroll').click(function () {
+            $("html, body").animate({scrollTop: 0}, 600);
+            return false;
+        });
+    });
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+<script>
+    $(document).ready(function() {
+        $(function () {
+            if ($(this).scrollTop() > 200) {
+                $(".slideanim").addClass("slidein");
+            }
+            var fl=0;
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 150) {
+                    $(".slideanim").removeClass("slideout");
+                    $(".slideanim").addClass("slidein");
+                    fl=1;
+                }
+
+                if ($(this).scrollTop() < 150 && fl==1) {
+                    $(".slideanim").removeClass("slidein");
+                    $(".slideanim").addClass("slideout");
+                    fl=0;
+                }
+            });
+        });
+    });
+</script>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $(".cherta1").click(function() {
+                $(".cherta1").css("background-color", "darkgray");
+                $(".cherta2").css("background-color", "black");
+                $(".cherta3").css("background-color", "black");
+            });
+            $(".cherta2").click(function() {
+                $(".cherta1").css("background-color", "black");
+                $(".cherta2").css("background-color", "darkgray");
+                $(".cherta3").css("background-color", "black");
+            });
+            $(".cherta3").click(function() {
+                $(".cherta1").css("background-color", "black");
+                $(".cherta2").css("background-color", "black");
+                $(".cherta3").css("background-color", "darkgray");
+            });
+        });
+        </script>
+</body>
+
+</html>
